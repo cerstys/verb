@@ -117,6 +117,24 @@ footer small{font-size:12px}
 .fit p{margin:0}
 .fit .no p:last-child{color:var(--muted)}
 .end p.pay{margin:14px 0 0;font-size:15px;font-weight:400;letter-spacing:0}
+
+/* герой-1: лист сразу под H1, набор по буквам; по умолчанию — финальный вид */
+.intro h1{margin-bottom:0}
+.intro + .sheet{margin-top:24px}
+.intro.after{margin-top:24px}
+.intro.after .subhead{margin:0 auto 24px}
+.fix .row{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:.35em;row-gap:4px}
+.fix .op{color:var(--muted);font-weight:500}
+.fix .res{white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){
+.typed > span:not(.caret){animation:in .01s calc(var(--i)*90ms + 300ms) both}
+.typed .miss{animation:in .01s 750ms both,wave .35s 1.3s both}
+.caret{animation:blink 1.1s steps(1) 1.1s 3}
+.fix{animation:up .35s ease 1.8s both}
+}
+@keyframes in{from{display:none}} /* где display не анимируется — буквы видны сразу */
+@keyframes wave{from{color:var(--ink);text-decoration-color:transparent}}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
 </style>
 
 </head>
@@ -125,19 +143,22 @@ footer small{font-size:12px}
 <main>
 <div class="intro">
 <p class="kicker">Тренажёр испанских глаголов для iPhone · испанский Испании</p>
-<h1>Ошиблись в глаголе? Увидите, где именно.</h1>
-<p class="subhead">Вы пишете форму глагола целиком. Тренажёр показывает, в какой части ошибка — в основе, окончании или знаке ударения, — и объясняет правило именно для неё. Формы, которые ещё путаются, возвращаются на повтор.</p>
-<a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-hero&amp;mt=8"><img src="badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
-<p class="pay"><b>7 дней бесплатно</b> в годовой подписке. Есть и месячная, и разовая покупка «Навсегда».</p>
+<h1>Где здесь ошибка?</h1>
 </div>
 
 <div class="sheet" aria-label="Пример: в ответе пропущен знак ударения, тренажёр показывает, где именно">
 <p class="ask"><b lang="es">comer</b> · <span lang="es">Futuro · vosotros</span></p>
-<p class="typed" lang="es" aria-label="Набранный ответ: comereis">comer<span class="miss">e</span>is<span class="caret" aria-hidden="true"></span></p>
+<p class="typed" lang="es" aria-label="Набранный ответ: comereis"><span style="--i:0">c</span><span style="--i:1">o</span><span style="--i:2">m</span><span style="--i:3">e</span><span style="--i:4">r</span><span class="miss" style="--i:5">e</span><span style="--i:6">i</span><span style="--i:7">s</span><span class="caret" aria-hidden="true"></span></p>
 <div class="fix">
 <p class="verdict">Нет знака.</p>
-<p class="row" lang="es"><span class="pt"><span class="st">comer</span><small lang="ru">Инфинитив</small></span><span class="pt"><span class="m">éis</span><small lang="ru">Окончание</small></span></p>
+<p class="row" lang="es"><span class="pt"><span class="st">comer</span><small lang="ru">Инфинитив</small></span><span class="op">+</span><span class="pt"><span class="m">éis</span><small lang="ru">Окончание</small></span><span class="res"><span class="op">→</span> comer<span class="m">éis</span></span></p>
 </div>
+</div>
+
+<div class="intro after">
+<p class="subhead">Тренажёр показывает, в какой части формы ошибка, и объясняет правило.</p>
+<a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-hero&amp;mt=8"><img src="badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
+<p class="pay"><b>7 дней бесплатно</b> в годовой подписке.</p>
 </div>
 
 <section class="tact">
