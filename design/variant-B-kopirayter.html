@@ -88,9 +88,15 @@ tr.me{background:var(--nest)} tr.me th,tr.me td{color:var(--nestInk)} tr.me th{p
 .faq details:last-child{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-size:19px;font-weight:600}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--muted);font-weight:400}
-.faq details[open] summary::after{content:"−"}
-.faq p{margin:8px 0 0;color:var(--muted);max-width:60ch}
+.faq summary::after{content:"+";color:var(--muted);font-weight:400;transition:transform .3s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+/* плавное раскрытие без JS: Safari 18.4+/Chrome 131+; где нет ::details-content — открывается сразу */
+.faq details::details-content{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s ease,opacity .35s ease,content-visibility .35s allow-discrete}
+.faq details[open]::details-content{grid-template-rows:1fr;opacity:1}
+.faq details p{min-height:0;overflow:hidden}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.faq details::details-content,.faq summary::after{transition:none}}
+.faq p{margin:0;padding-top:8px;color:var(--muted);max-width:60ch}
 .faq h2{font-size:clamp(28px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:0 0 16px}
 
 .end{text-align:center}
