@@ -1,6 +1,6 @@
 # HANDOFF — заход ЛН-1 (лендинг Vosotros), 16.11.2026
 
-**Роль:** дизайнер-верстальщик статических сайтов и сеньор подачи iOS-приложений. Координатор —
+**Роль:** верстальщик и сеньор подачи iOS-приложений. Координатор —
 `local_f6b2232e-ca44-4d05-a946-56e6db9c95c3`. С владельцем — через координатора (владелец пишет и сюда напрямую).
 Скиллы: `malyy-zakhod` (часть В), `dizain-celikom` — в `/Users/AI/Conjugador/.claude/skills/`.
 
@@ -11,13 +11,11 @@
 
 ## Где что лежит (`design/`)
 - **Основа: `variant-B-kopirayter.html` (коммит 5a5c8a3)** — тексты копирайтера, кадр разбора 13 в рамке.
-- `variant-B-marketolog.html` — прежняя версия (её структуру одобрил владелец); `variant-B-ekspert.html`; `variant-A/B/C.html`;
-  12 середин — `middle/`.
-- Отчёты: `ekspert-veb-dizain.md`, `marketolog.md`, `marketolog-2.md/.html`, `kopirayter.md/.html`, `otchet-seredina.html`.
+- Прежние: `variant-B-marketolog.html`, `variant-B-ekspert.html`, `variant-A/B/C.html`, `middle/`.
+- Отчёты: `ekspert-veb-dizain.md`, `marketolog*.md`, `kopirayter.md/.html`.
 - `badges/` — официальные значки App Store RU/EN (SVG, проверены). `img/` — кадры приложения в официальной рамке Apple iPhone 17
   Black: `razbor-osnova-ru.png` (на странице), `variant-kadra-09/12/14.png`, `trenirovka-znak-ru-ramka{,-noch}.png`.
-- Кадры страниц: `shots/kopirayter/`, `shots/marketolog/`, `shots/ekspert/`. 375 px снимать через iframe: headless Chrome
-  не сужает окно меньше ~500 px.
+- Кадры: `shots/*/`. 375 px снимать через iframe (headless Chrome уже ~500 px не сужает).
 - Источник кадров приложения — эталон ВП-1: `/Users/AI/Conjugador/design/ekrany/trenirovka-i-drill/vp-1/etalon/`.
 
 ## Слова владельца (16.11, дословно)
