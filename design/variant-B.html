@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vosotros — вариант Б «Форма по слоям»</title>
+<style>
+@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
+:root{--bg:#FCFDFE;--card:#F4F8F9;--ink:#1C1C1C;--muted:#646464;--line:#C9D3D6;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--err:#C2381E;--errBg:#FBE3DC;--ok:#1A7444;--btn:#12354E;--on:#fff;--frame:#1C1C1C;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1A24;--card:#132B3D;--ink:#F5F5F5;--muted:#A1A1A1;--line:#26394A;--nest:#173349;--nestInk:#A5C8D1;--mark:#5EC3EA;--err:#FF6B4A;--errBg:#3A2420;--ok:#96D1AA;--btn:#A5C8D1;--on:#1C1C1E;--frame:#000}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+.page{max-width:1080px;margin:0 auto;padding:24px 16px 40px}
+header,footer{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}
+header b{color:var(--ink);font-weight:700}
+.hero{display:grid;gap:40px;align-items:center;margin-top:56px}
+@media (min-width:860px){.hero{grid-template-columns:1.4fr 1fr}}
+.typed{font-size:15px;color:var(--muted);margin:0}
+.typed span{color:var(--err)}
+.word{font-size:clamp(52px,12vw,96px);font-weight:700;letter-spacing:-.03em;line-height:1;margin:6px 0 16px}
+.word .m{color:var(--mark)} .word u{text-decoration-thickness:5px;text-underline-offset:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;font-size:14px}
+.chips span{background:var(--nest);color:var(--nestInk);padding:6px 12px;border-radius:9px}
+.chips .bad{background:var(--errBg);color:var(--err)}
+h1{font-size:clamp(28px,5vw,40px);font-weight:700;line-height:1.15;letter-spacing:-.01em;margin:0 0 12px}
+.lead{color:var(--muted);max-width:34em;margin:0 0 24px}
+.btn{display:inline-block;background:var(--btn);color:var(--on);text-decoration:none;font-weight:600;border-radius:12px;padding:14px 22px}
+.phone{justify-self:center;width:min(300px,100%);background:var(--frame);border-radius:44px;padding:10px}
+.screen{background:var(--bg);border-radius:36px;padding:44px 18px 22px;font-size:15px}
+.screen .t{font-size:13px;color:var(--muted)} .screen .v{font-size:28px;font-weight:700;margin:2px 0 18px}
+.ans{border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:22px;margin-bottom:10px}
+.ans.fix{border-color:transparent;background:var(--nest)}
+.ans .e{color:var(--err)} .ans .m{color:var(--mark)}
+.screen p{font-size:13px;color:var(--muted);line-height:1.5;margin:12px 2px 20px}
+.next{background:var(--btn);color:var(--on);border-radius:12px;padding:12px;text-align:center;font-weight:600}
+.three{display:grid;gap:24px;margin-top:80px}
+@media (min-width:700px){.three{grid-template-columns:repeat(3,1fr)}}
+.three div{border-top:3px solid var(--btn);padding-top:12px}
+.three div:nth-child(2){border-color:var(--mark)} .three div:nth-child(3){border-color:var(--ok)}
+.three b{display:block;font-size:19px} .three span{color:var(--muted)}
+footer{margin-top:80px;padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+</style>
+</head>
+<body><div class="page">
+<header><b>Vosotros</b><span>RU · <a href="#">EN</a></span></header>
+<main>
+<section class="hero">
+<div>
+<p class="typed">вы набрали <span>hablarais</span></p>
+<p class="word" aria-label="hablaréis">habl<span class="m">ar<u>é</u>is</span></p>
+<p class="chips"><span>основа · верно</span><span class="bad">окончание · сбилось</span><span>ударение</span></p>
+<h1>Видно, где именно ошибка в форме</h1>
+<p class="lead">Тренажёр спряжения кастильского испанского для iPhone. Разбирает набранный ответ на слои и помнит каждую форму по лицу и времени.</p>
+<a class="btn" href="#">Загрузить в App Store</a>
+</div>
+<div class="phone" aria-hidden="true"><div class="screen">
+<div class="t">Futuro · vosotros</div><div class="v">hablar</div>
+<div class="ans">habl<span class="e">arais</span></div>
+<div class="ans fix">habl<span class="m">aréis</span></div>
+<p>Основа верна. Окончание будущего: -é + -is.</p>
+<div class="next">Дальше</div>
+</div></div>
+</section>
+<section class="three">
+<div><b>Набираете</b><span>форму целиком, а не выбираете из списка</span></div>
+<div><b>Разбор по слоям</b><span>основа, окончание, ударение — отдельно</span></div>
+<div><b>Карта форм</b><span>каждая форма до лица и времени</span></div>
+</section>
+</main>
+<footer><span><a href="#">Конфиденциальность</a> · <a href="#">Поддержка</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Условия</a></span><span>© [Seller Name]</span></footer>
+</div></body>
+</html>
