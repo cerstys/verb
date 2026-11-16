@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vosotros — вариант Б «Форма по слоям», круг 2</title>
+<title>Vosotros — вариант Б «Форма по слоям», круг 3</title>
 <style>
 @font-face{font-family:Manrope;src:url(fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
 :root{--bg:#FCFDFE;--sheet:#F4F8F9;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--err:#C2381E;--ok:#1A7444;--okBg:#DCEFE3;--none:#C9D3D6;--btn:#12354E;--on:#fff;color-scheme:light dark}
@@ -28,21 +28,20 @@ h1{font-size:clamp(34px,6.4vw,60px);font-weight:700;letter-spacing:-.025em;line-
 @keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.caret{animation:none}}
 .fix{background:var(--bg);border-radius:16px;padding:20px 22px;max-width:560px}
-.fix .row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-size:clamp(24px,4.5vw,34px);font-weight:600}
-.fix .row s{color:var(--muted);font-weight:400;text-decoration-thickness:2px}
+.fix .verdict{margin:0 0 10px;font-size:15px;font-weight:600;color:var(--err)}
+.fix .row{margin:0;font-size:clamp(32px,6vw,48px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.fix .row .st{color:var(--muted);font-weight:500}
 .fix .row .m{color:var(--mark)}
-.layers{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;font-size:15px}
-.layers li{display:flex;gap:10px;align-items:baseline}
-.layers .t{display:inline-block;min-width:96px;padding:2px 10px;border-radius:7px;background:var(--nest);color:var(--nestInk);font-size:13px}
-.layers .bad .t{background:var(--err);color:var(--on)}
+.fix .pt{display:inline-flex;flex-direction:column}
+.fix .pt small{font-size:13px;font-weight:500;letter-spacing:0;color:var(--muted);margin-top:6px}
 .prose{display:grid;gap:40px;margin:88px 0 0}
 @media (min-width:760px){.prose{grid-template-columns:1fr 1fr;column-gap:64px}}
 .prose h2{font-size:22px;font-weight:700;line-height:1.25;margin:0 0 8px}
 .prose p{margin:0;color:var(--muted)}
-.strip{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:16px}
-.strip i{height:20px;border-radius:4px;background:var(--none)}
-.strip .o{background:var(--ok)} .strip .x{background:var(--err)}
-.strip-cap{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+.back{margin:18px 0 0}
+.back b{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
+.back ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.back li{background:var(--nest);color:var(--nestInk);border-radius:9px;padding:6px 12px;font-size:16px;font-weight:600}
 .end{text-align:center;margin:96px 0 0}
 .end p{font-size:clamp(24px,4vw,32px);font-weight:700;letter-spacing:-.015em;margin:0 0 20px}
 footer{margin-top:80px;padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
@@ -60,27 +59,22 @@ footer{margin-top:80px;padding-top:16px;border-top:1px solid var(--line);flex-wr
 
 <section class="sheet" aria-label="Пример разбора ответа">
 <p class="ask"><b>hablar</b> · Futuro · vosotros</p>
-<p class="typed">hablar<span class="e">ais</span><span class="caret" aria-hidden="true"></span></p>
+<p class="typed">hablar<span class="e">e</span>is<span class="caret" aria-hidden="true"></span></p>
 <div class="fix">
-<p class="row" style="margin:0"><s>hablarais</s><span style="white-space:nowrap"><span aria-hidden="true">→ </span>hablar<span class="m">éis</span></span></p>
-<ul class="layers">
-<li><span class="t">основа</span>hablar- — верно: в будущем это весь инфинитив</li>
-<li class="bad"><span class="t">окончание</span>-éis, а не -ais</li>
-<li><span class="t">ударение</span>на é — знак обязателен</li>
-</ul>
+<p class="verdict">Нет знака.</p>
+<p class="row"><span class="pt"><span class="st">hablar</span><small>Инфинитив</small></span><span class="pt"><span class="m">éis</span><small>Окончание</small></span></p>
 </div>
 </section>
 
 <section class="prose">
 <div>
 <h2>Вы набираете ответ</h2>
-<p>Форму целиком, своими буквами. Тренажёр разбирает её на основу, окончание и ударение и показывает, какой слой сбился.</p>
+<p>Форму целиком, своими буквами. Тренажёр разбирает её на основу, окончание и знак и показывает, где именно сбой.</p>
 </div>
 <div>
-<h2>Он помнит каждую форму</h2>
+<h2>Тренажёр помнит каждую форму</h2>
 <p>До лица и времени — и возвращает те, что держатся нетвёрдо.</p>
-<div class="strip" aria-hidden="true"><i class="o"></i><i class="o"></i><i class="x"></i><i class="o"></i><i class="x"></i><i></i><i></i><i></i></div>
-<div class="strip-cap"><span>vosotros: от presente</span><span>до imperativo</span></div>
+<div class="back"><b>Вернулись к повторению</b><ul><li>hablaréis</li><li>fuisteis</li><li>dijisteis</li><li>teníais</li><li>haréis</li></ul></div>
 </div>
 </section>
 
