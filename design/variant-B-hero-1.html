@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vosotros — тренажёр испанских глаголов для iPhone</title>
+<meta name="description" content="Вы пишете форму глагола сами, а тренажёр показывает, где ошибка: в основе, окончании или ударении. И объясняет правило именно для этого места. Испанский Испании, iPhone, правила на русском и английском.">
+<style>
+@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
+:root{--bg:#FCFDFE;--sheet:#F4F8F9;--raised:#FFFFFF;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--miss:#A83D1B;--missBg:#FFF1EE;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1A24;--sheet:#132B3D;--raised:#173349;--ink:#F5F5F5;--muted:#A1A1A1;--line:#26394A;--nest:rgba(255,255,255,.06);--nestInk:#A5C8D1;--mark:#5EC3EA;--miss:#FF9E80;--missBg:#2D1D1B}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+.page{max-width:752px;margin:0 auto;padding:24px 16px 40px}
+header,footer{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}
+header b{color:var(--ink);font-weight:700}
+section{margin-top:clamp(72px,10vw,120px)}
+.m{color:var(--mark)}
+.miss{color:var(--miss);text-decoration:underline wavy var(--miss);text-decoration-thickness:2px;text-underline-offset:.18em}
+.verdict{display:inline-block;background:var(--missBg);color:var(--miss);font-size:14px;font-weight:600;border-radius:8px;padding:3px 10px;margin:0}
+.cap{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 8px}
+
+.intro{text-align:center;margin-top:64px}
+.kicker{font-size:16px;color:var(--ink);margin:0 0 12px}
+h1{font-size:clamp(34px,6.4vw,56px);font-weight:700;letter-spacing:-.025em;line-height:1.06;margin:0 0 28px}
+.badge{display:inline-block;padding:11px;margin:-11px;line-height:0}
+.badge img{height:44px;width:auto}
+.pay{font-size:15px;color:var(--muted);margin:14px 0 0}
+.pay b{font-weight:600;color:var(--ink)}
+
+.sheet{margin-top:48px;background:var(--sheet);border-radius:24px;padding:clamp(24px,5vw,48px)}
+.ask{font-size:15px;color:var(--muted);margin:0}
+.ask b{color:var(--ink);font-weight:600}
+.typed{font-size:clamp(44px,10vw,88px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin:8px 0 24px}
+.typed .miss{text-decoration-thickness:3px;text-underline-offset:12px}
+.caret{display:inline-block;width:.06em;height:.82em;background:var(--mark);vertical-align:-.06em;margin-left:.04em;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}}
+.fix{background:var(--raised);border-radius:16px;padding:20px 22px}
+.fix .row{margin:12px 0 0;font-size:clamp(32px,6vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.pt{display:inline-flex;flex-direction:column}
+.pt small{font-size:13px;font-weight:500;letter-spacing:0;color:var(--muted);margin-top:6px}
+.st{color:var(--muted);font-weight:500}
+
+.tact{border-top:1px solid var(--line);padding-top:32px}
+.tact h2{font-size:clamp(32px,5vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0 0 6px}
+.tact .lead{color:var(--ink);margin:0 0 28px;max-width:60ch}
+
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.cards{grid-template-columns:1fr}}
+.card{background:var(--sheet);border-radius:16px;padding:20px}
+.card .t{font-size:26px;font-weight:600;color:var(--muted);margin:16px 0 2px}
+.card .t .miss{color:var(--muted)}
+.card .r{font-size:26px;font-weight:700;margin:0 0 10px}
+.card .n{font-size:14px;color:var(--muted);margin:0}
+
+.rule{background:var(--nest);color:var(--nestInk);border-radius:12px;padding:14px 18px;font-size:clamp(20px,3.4vw,26px);font-weight:600;margin:0}
+.rule .m{font-weight:700}
+.ruletext{font-size:17px;color:var(--ink);margin:12px 0 24px;max-width:60ch}
+.samples{display:flex;gap:28px;flex-wrap:wrap;font-size:24px;font-weight:700;margin:0}
+
+.lang2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.lang2{grid-template-columns:1fr}}
+.lang2 figure{margin:0;background:var(--sheet);border-radius:16px;padding:20px 22px}
+.lang2 figcaption{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:10px}
+.lang2 blockquote{margin:0;font-size:17px;line-height:1.55}
+.lang2 .h{display:block;font-size:22px;font-weight:700;margin-bottom:6px}
+.lang2 b{font-weight:700;color:var(--mark)}
+.ret{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:760px){.ret{grid-template-columns:1fr}}
+table{border-collapse:collapse;width:100%;font-size:19px}
+caption{text-align:left;font-size:13px;font-weight:600;color:var(--muted);padding-bottom:8px}
+th{text-align:left;font-weight:400;color:var(--muted);font-size:15px;padding:8px 0;width:48%}
+td{font-weight:600;padding:8px 0}
+tr{border-top:1px solid var(--line)}
+tr.me{background:var(--nest)} tr.me th,tr.me td{color:var(--nestInk)} tr.me th{padding-left:10px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--nest);color:var(--nestInk);border-radius:9px;padding:6px 12px;font-weight:600}
+.ret p{margin:0 0 20px}
+
+.shot{display:grid;grid-template-columns:300px minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:760px){.shot{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.shot picture img{display:block;width:300px;max-width:80vw;height:auto}
+.shot h2{font-size:clamp(28px,4vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0 0 10px}
+.shot p{margin:0;color:var(--ink);max-width:36ch}
+.faq details{border-top:1px solid var(--line);padding:16px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-size:19px;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--muted);font-weight:400;transition:transform .3s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+/* плавное раскрытие без JS: Safari 18.4+/Chrome 131+; где нет ::details-content — открывается сразу */
+.faq details::details-content{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s ease,opacity .35s ease,content-visibility .35s allow-discrete}
+.faq details[open]::details-content{grid-template-rows:1fr;opacity:1}
+.faq details p{min-height:0;overflow:hidden}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.faq details::details-content,.faq summary::after{transition:none}}
+.faq p{margin:0;padding-top:8px;color:var(--muted);max-width:60ch}
+.faq h2{font-size:clamp(28px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:0 0 16px}
+
+.end{text-align:center}
+.end p{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.015em;margin:0 0 24px}
+footer{margin-top:80px;padding-top:16px;border-top:1px solid var(--line);flex-direction:column;gap:6px}
+footer .links{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer small{font-size:12px}
+.subhead{font-size:clamp(18px,2.2vw,20px);line-height:1.5;color:var(--ink);max-width:60ch;margin:-12px auto 28px}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--sheet);border-radius:16px;padding:20px}
+.plan b{display:block;font-size:19px;font-weight:700;margin-bottom:6px}
+.plan p{margin:0;font-size:15px}
+.plan strong{font-weight:700}
+.note{font-size:15px;margin:20px 0 0;max-width:62ch}
+.fit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+@media (max-width:760px){.fit{grid-template-columns:1fr;gap:20px}}
+.fit p{margin:0}
+.fit .no p:last-child{color:var(--muted)}
+.end p.pay{margin:14px 0 0;font-size:15px;font-weight:400;letter-spacing:0}
+
+/* герой-1: лист сразу под H1, набор по буквам; по умолчанию — финальный вид */
+.intro h1{margin-bottom:0}
+.intro + .sheet{margin-top:24px}
+.intro.after{margin-top:24px}
+.intro.after .subhead{margin:0 auto 24px}
+.fix .row{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:.35em;row-gap:4px}
+.fix .op{color:var(--muted);font-weight:500}
+.fix .res{white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){
+.typed > span:not(.caret){animation:in .01s calc(var(--i)*90ms + 300ms) both}
+.typed .miss{animation:in .01s 750ms both,wave .35s 1.3s both}
+.caret{animation:blink 1.1s steps(1) 1.1s 3}
+.fix{animation:up .35s ease 1.8s both}
+}
+@keyframes in{from{display:none}} /* где display не анимируется — буквы видны сразу */
+@keyframes wave{from{color:var(--ink);text-decoration-color:transparent}}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+</style>
+
+</head>
+<body><div class="page">
+<header><b>Vosotros</b><span>RU · <a href="#">EN</a></span></header>
+<main>
+<div class="intro">
+<p class="kicker">Тренажёр испанских глаголов для iPhone · испанский Испании</p>
+<h1>Где здесь ошибка?</h1>
+</div>
+
+<div class="sheet" aria-label="Пример: в ответе пропущен знак ударения, тренажёр показывает, где именно">
+<p class="ask"><b lang="es">comer</b> · <span lang="es">Futuro · vosotros</span></p>
+<p class="typed" lang="es" aria-label="Набранный ответ: comereis"><span style="--i:0">c</span><span style="--i:1">o</span><span style="--i:2">m</span><span style="--i:3">e</span><span style="--i:4">r</span><span class="miss" style="--i:5">e</span><span style="--i:6">i</span><span style="--i:7">s</span><span class="caret" aria-hidden="true"></span></p>
+<div class="fix">
+<p class="verdict">Нет знака.</p>
+<p class="row" lang="es"><span class="pt"><span class="st">comer</span><small lang="ru">Инфинитив</small></span><span class="op">+</span><span class="pt"><span class="m">éis</span><small lang="ru">Окончание</small></span><span class="res"><span class="op">→</span> comer<span class="m">éis</span></span></p>
+</div>
+</div>
+
+<div class="intro after">
+<p class="subhead">Тренажёр показывает, в какой части формы ошибка, и объясняет правило.</p>
+<a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-hero&amp;mt=8"><img src="badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
+<p class="pay"><b>7 дней бесплатно</b> в годовой подписке.</p>
+</div>
+
+<section class="tact">
+<h2>Вы пишете.</h2>
+<p class="lead">Никаких готовых ответов: форму вы пишете целиком. А ошибка почти всегда сидит в одной из трёх частей.</p>
+<div class="cards">
+<div class="card"><p class="verdict">Основа — не та.</p><p class="t" lang="es"><span class="miss">ten</span>isteis</p><p class="r" lang="es"><span class="m">tuv</span>isteis</p><p class="n" lang="es">tener · Indefinido</p></div>
+<div class="card"><p class="verdict">Окончание — не то.</p><p class="t" lang="es">habl<span class="miss">astes</span></p><p class="r" lang="es">habl<span class="m">asteis</span></p><p class="n" lang="es">hablar · Indefinido</p></div>
+<div class="card"><p class="verdict">Знак не на месте.</p><p class="t" lang="es">estudi<span class="miss">á</span>steis</p><p class="r" lang="es">estudi<span class="m">a</span>steis</p><p class="n" lang="es">estudiar · Indefinido</p></div>
+</div>
+</section>
+
+<section class="tact">
+<h2>Тренажёр разбирает.</h2>
+<p class="lead">Не лекция по всему времени, а одно правило — про вашу ошибку. Плюс два примера.</p>
+<p class="rule" lang="es">comer + <span class="m">-éis</span> → comer<span class="m">éis</span></p>
+<p class="ruletext">Знак в futuro стоит только на окончании, во всех лицах, кроме nosotros: ударение падает на последний слог. В -emos оно на предпоследнем, и знака нет.</p>
+<p class="cap">Примеры</p>
+<p class="samples" lang="es"><span>hablar<span class="m">éis</span></span><span>vivir<span class="m">éis</span></span></p>
+</section>
+
+<section class="shot">
+<picture><img src="img/razbor-osnova-ru.png" width="300" height="613" alt="Экран разбора на iPhone. Задание: empezar, vosotros, Indefinido. Набрано empecasteis, под ответом: «Основа — не та.», правило и примеры buscaste, tocaste." loading="lazy"></picture>
+<div><h2>Так это выглядит в&nbsp;приложении</h2><p>Вы написали empecasteis — тренажёр отмечает основу, объясняет правило и показывает формы, которые строятся так же. Никаких очков и упрёков.</p></div>
+</section>
+
+<section class="tact">
+<h2>На вашем языке.</h2>
+<p class="lead">Мы писали правила отдельно для тех, кто говорит по-русски, и для тех, кто говорит по-английски: путают они разное. Вот одна тема — два объяснения.</p>
+<div class="lang2">
+<figure><figcaption>Для русскоговорящих</figcaption><blockquote><span class="h" lang="es">Imperfecto</span><span lang="es">Ayer jugamos</span> — «вчера мы поиграли»: случилось и закончилось, это indefinido. <b>Несовершенный вид подсказывает imperfecto не всегда</b>: «два года я жил в Мадриде» — период закрыт, и это indefinido: <span lang="es">viví dos años en Madrid</span>.</blockquote></figure>
+<figure lang="en"><figcaption lang="ru">Для англоговорящих</figcaption><blockquote><span class="h" lang="es">Imperfecto</span><b>English 'played' covers both</b>: 'we played yesterday' is one finished event — <span lang="es">ayer jugamos</span>, the indefinido. Where English could say 'used to' or 'was ...ing', Spanish usually takes the imperfecto — and for descriptions too: 'the house was big' — <span lang="es">la casa era grande</span>.</blockquote></figure>
+</div>
+</section>
+
+<section class="tact">
+<h2>Трудное возвращается.</h2>
+<p class="lead">Тренажёр помнит каждую форму отдельно: свой глагол, своё время, своё лицо. Те, в которых вы ошибаетесь, возвращаются на повтор.</p>
+<div class="ret">
+<table lang="es"><caption lang="ru">hablar · Futuro</caption>
+<tr><th>yo</th><td>hablar<span class="m">é</span></td></tr>
+<tr><th>tú</th><td>hablar<span class="m">ás</span></td></tr>
+<tr><th>él, ella, usted</th><td>hablar<span class="m">á</span></td></tr>
+<tr><th>nosotros</th><td>hablar<span class="m">emos</span></td></tr>
+<tr class="me"><th>vosotros</th><td>hablar<span class="m">éis</span></td></tr>
+<tr><th>ellos, ustedes</th><td>hablar<span class="m">án</span></td></tr>
+</table>
+<div>
+<p>Тренируются все лица, не только vosotros. Но и его здесь не пропускают: у vosotros свои окончания в каждом времени.</p>
+<p class="cap">Вернулись к повторению</p>
+<ul class="chips" lang="es"><li>hablaréis</li><li>fuisteis</li><li>dijisteis</li><li>teníais</li><li>haréis</li></ul>
+</div>
+</div>
+</section>
+
+<section class="tact">
+<h2>Как платить</h2>
+<div class="plans">
+<div class="plan"><b>Год</b><p><strong>Первые 7 дней бесплатно.</strong> За 2 дня до их конца придёт напоминание.</p></div>
+<div class="plan"><b>Месяц</b><p>Без бесплатных дней. Отменить можно когда угодно.</p></div>
+<div class="plan"><b>«Навсегда»</b><p>Платите один раз — без подписки. Можно поделиться с семьёй через Семейный доступ.</p></div>
+</div>
+<p class="note">Отменить подписку можно в любой момент в настройках Apple ID. Ваш прогресс хранится на iPhone и никуда не денется, даже если вы отмените подписку или смените тариф. Цены — в App Store, в вашей валюте.</p>
+</section>
+
+<section class="tact">
+<h2>Подойдёт ли вам</h2>
+<div class="fit">
+<div><p class="cap">Подойдёт, если</p><p>Вы знаете, что такое Indefinido и Imperfecto, но в формах всё ещё путаетесь. Вы учите испанский, на котором говорят в Испании. Вы хотите писать формы сами, а не выбирать из готовых.</p></div>
+<div class="no"><p class="cap">Не подойдёт, если</p><p>Вы только начинаете учить испанский. Вам нужна разговорная практика или новые слова. У вас Android.</p></div>
+</div>
+</section>
+
+<section class="faq">
+<h2>Вопросы</h2>
+<details><summary>Можно ли попробовать бесплатно?</summary><p>Да, в годовой подписке первые 7 дней бесплатны. За 2 дня до их конца придёт напоминание. В месячной подписке бесплатных дней нет.</p></details>
+<details><summary>Чем подписка отличается от «Навсегда»?</summary><p>Подписка продлевается сама, пока вы её не отмените, и делиться ею с семьёй нельзя. «Навсегда» вы покупаете один раз — и можете поделиться с семьёй через Семейный доступ.</p></details>
+<details><summary>Как отменить подписку?</summary><p>В настройках Apple ID, в любой момент.</p></details>
+<details><summary>Что будет с прогрессом, если подписка закончится?</summary><p>Весь прогресс останется на iPhone. Вы просто не сможете тренировать платные времена.</p></details>
+<details><summary>Здесь только vosotros?</summary><p>Нет, все лица: <span lang="es">yo, tú, él, ella, usted, nosotros, vosotros, ellos, ustedes</span>.</p></details>
+<details><summary>Подойдёт, если я учу латиноамериканский испанский?</summary><p>Отчасти. Формы yo, tú, él, nosotros и ellos там те же. А vosotros в Латинской Америке не говорят — но в тренажёре он есть.</p></details>
+<details><summary>Какие времена есть в тренажёре?</summary><p><span lang="es">Pretérito Indefinido, Pretérito Imperfecto, Pretérito Perfecto, Pretérito Pluscuamperfecto и Futuro Simple</span>.</p></details>
+<details><summary>На каком языке объяснения?</summary><p>На русском и на английском. Это не перевод: для каждого языка правила написаны отдельно и объясняют через то, что знакомо его носителю.</p></details>
+<details><summary>Как набирать знаки?</summary><p>Нажмите гласную — над ней встанет знак.</p></details>
+<details><summary>Нужен ли интернет?</summary><p>Нет, тренажёр работает без интернета.</p></details>
+<details><summary>Какой нужен iPhone?</summary><p>iPhone с iOS 26 или новее.</p></details>
+</section>
+
+<section class="end">
+<p>Учите испанский Испании? Vosotros — для вас.</p>
+<a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-end&amp;mt=8"><img src="badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
+<p class="pay"><b>7 дней бесплатно</b> в годовой подписке · месяц · «Навсегда»</p>
+</section>
+</main>
+<footer>
+<div class="links"><span><a href="#">Конфиденциальность</a> · <a href="#">Поддержка</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Условия</a></span></div>
+<small>Apple, логотип Apple и App Store — товарные знаки Apple Inc.</small>
+</footer>
+</div></body>
+</html>
