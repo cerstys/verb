@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>«Год» — три направления (эскизы, разведка 21.11)</title>
+<!-- Эскизы направлений, без анимации и полировки. Подписи внутри — черновые, тексты потом пишет роль. Факты: 7 дней бесплатно (1–7),
+     напоминание за 2 дня до окончания — 6-й день (по коду BillingReminder), оплата — 8-й день. Палитра сайта, без чёрного. -->
+<style>
+:root{--bg:#FCFDFE;--sheet:#F4F8F9;--raised:#FFFFFF;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--glint:#2E9BD0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 Manrope,system-ui,-apple-system,sans-serif}
+main{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+h2{font-size:15px;color:var(--muted);font-weight:600;margin:56px 0 10px}h2:first-child{margin-top:0}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px}.plan{background:var(--sheet);border-radius:16px;padding:20px}
+.plan b{display:block;font-size:19px;font-weight:700;margin-bottom:6px}.plan p{margin:0;font-size:15px}
+.plan.year{grid-column:1/-1;padding:26px clamp(20px,4vw,36px);background:linear-gradient(160deg,#EAF4FA,#F4F8F9 60%);box-shadow:0 0 0 1.5px color-mix(in srgb,var(--mark) 35%,transparent)}
+.plan.year>b{font-size:24px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+/* A — лента обещаний */
+.tl{list-style:none;margin:18px 0 18px;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:19px;top:20px;bottom:20px;width:3px;border-radius:3px;background:linear-gradient(var(--glint),var(--mark) 70%,var(--nest))}
+.tl li{position:relative;display:grid;grid-template-columns:42px 1fr;gap:14px;padding:8px 0}
+.tl .ic{width:42px;height:42px;border-radius:50%;background:var(--raised);box-shadow:0 0 0 2px var(--mark),0 6px 16px rgba(31,110,160,.18);display:grid;place-items:center;z-index:1}
+.tl .ic svg{width:20px;height:20px;fill:none;stroke:var(--mark);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tl li:last-child .ic{box-shadow:0 0 0 2px var(--nest)}.tl li:last-child .ic svg{stroke:var(--nestInk)}
+.tl h4{margin:2px 0 2px;font-size:16px}.tl h4 small{font-weight:500;color:var(--mark);margin-right:6px}.tl p{margin:0;font-size:14px;color:var(--muted)}
+/* B — ноль сегодня */
+.zero{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:center;margin:16px 0 18px}
+.zero .big{font-size:clamp(56px,10vw,84px);font-weight:800;line-height:.9;color:var(--mark);letter-spacing:-.03em}
+.zero .big small{display:block;font-size:15px;font-weight:600;letter-spacing:0;color:var(--nestInk);margin-top:8px}
+.chk{display:flex;gap:10px;align-items:flex-start;background:var(--raised);border-radius:12px;padding:12px 14px;box-shadow:0 0 0 1px var(--line);font-size:14.5px}
+.chk+.chk{margin-top:8px}.chk svg{flex:none;width:20px;height:20px;fill:none;stroke:var(--mark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+@media (max-width:760px){.zero{grid-template-columns:1fr}}
+/* C — три обещания и день оплаты на календарном листке */
+.c3{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;margin:16px 0 18px}
+.leaf{width:120px;border-radius:18px;background:var(--raised);box-shadow:0 0 0 1px var(--line),0 12px 28px rgba(31,110,160,.16);overflow:hidden;text-align:center}
+.leaf i{display:block;font-style:normal;background:var(--mark);color:#fff;font-size:13px;font-weight:700;padding:6px 0;letter-spacing:.06em}
+.leaf b{display:block;font-size:52px;line-height:1.1;padding:8px 0 0;color:var(--nestInk)}.leaf span{display:block;font-size:12px;color:var(--muted);padding:0 8px 12px}
+.pr{list-style:none;margin:0;padding:0}.pr li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:15px;border-bottom:1px solid var(--line)}.pr li:last-child{border:0}
+.pr svg{flex:none;width:20px;height:20px;fill:none;stroke:var(--mark);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+@media (max-width:760px){.c3{grid-template-columns:1fr;justify-items:start}}
+</style></head><body><main>
+
+<h2 id="a">A · «Лента обещаний» — из Roameo / Blinkist (paywallscreens)</h2>
+<div class="plans"><div class="plan year"><b>Год</b>
+<ol class="tl">
+<li><span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span><div><h4><small>Сегодня</small>Открыта полная версия</h4><p>Без оплаты — первые 7 дней.</p></div></li>
+<li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.5a5.5 5.5 0 0 0-5.5 5.5v3.5L4.5 16h15l-2-3.5V9A5.5 5.5 0 0 0 12 3.5zM9.8 18.5a2.2 2.2 0 0 0 4.4 0"/></svg></span><div><h4><small>День 6</small>Напомним</h4><p>Уведомлением: когда начнётся оплата и где отменить.</p></div></li>
+<li><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><div><h4><small>День 8</small>Начинается годовая подписка</h4><p>Если не отмените раньше. Отмена — в Настройках iPhone.</p></div></li>
+</ol>
+<p>Платить сразу не нужно: <strong>первые 7&nbsp;дней бесплатно</strong> в годовой подписке. За 2&nbsp;дня до оплаты мы напомним.</p></div>
+<div class="plan"><b>Месяц</b><p>Без бесплатных дней. Отменить можно когда угодно.</p></div>
+<div class="plan"><b>«Навсегда»</b><p>Платите один раз — без подписки. Можно поделиться с семьёй через Семейный доступ.</p></div></div>
+
+<h2 id="b">B · «Сегодня — бесплатно» — из Thrifted, RecipeLab, Daily Bite (paywallscreens)</h2>
+<div class="plans"><div class="plan year"><b>Год</b>
+<div class="zero"><div class="big">7&nbsp;дней<small>бесплатно, с сегодняшнего</small></div>
+<div><div class="chk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Сегодня платить не нужно.</div>
+<div class="chk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>За 2&nbsp;дня до оплаты напомним.</div>
+<div class="chk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Отмените до конца 7&nbsp;дней — не заплатите ничего.</div></div></div></div>
+<div class="plan"><b>Месяц</b><p>Без бесплатных дней. Отменить можно когда угодно.</p></div>
+<div class="plan"><b>«Навсегда»</b><p>Платите один раз — без подписки. Можно поделиться с семьёй через Семейный доступ.</p></div></div>
+
+<h2 id="c">C · «Листок дня оплаты» — из SearchGWP (три обещания) и Headspace (выделенный «Год»)</h2>
+<div class="plans"><div class="plan year"><b>Год</b>
+<div class="c3"><div class="leaf"><i>ДЕНЬ</i><b>8</b><span>первый день оплаты — через неделю</span></div>
+<ul class="pr">
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>7&nbsp;дней бесплатно</strong> — вся полная версия.</span></li>
+<li><svg viewBox="0 0 24 24"><path d="M12 3.5a5.5 5.5 0 0 0-5.5 5.5v3.5L4.5 16h15l-2-3.5V9A5.5 5.5 0 0 0 12 3.5zM9.8 18.5a2.2 2.2 0 0 0 4.4 0"/></svg><span>На 6-й день — уведомление: дата оплаты и где отменить.</span></li>
+<li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Отмена — в Настройках iPhone, в любой момент.</span></li>
+</ul></div></div>
+<div class="plan"><b>Месяц</b><p>Без бесплатных дней. Отменить можно когда угодно.</p></div>
+<div class="plan"><b>«Навсегда»</b><p>Платите один раз — без подписки. Можно поделиться с семьёй через Семейный доступ.</p></div></div>
+</main></body></html>
