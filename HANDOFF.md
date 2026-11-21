@@ -26,7 +26,7 @@ E5 — последний сданный черновик. Слово владе
 Напоминание по коду — 6-й день. EN-тариф — Lifetime. Скептика не звать (слово владельца).
 
 ## Очередь — ПОСЛЕ окончательного принятия вида владельцем (слово владельца 21.11)
-1. Ссылка значка App Store с меткой кампании, во всех значках: `href="https://apps.apple.com/app/apple-store/id6836263523?pt=<PROVIDER_ID>&ct=site-<ru|en>-<hero|end|…>&mt=8"`. APP_ID = 6836263523 (verbisto). Provider ID (`pt`) пока НЕ известен — даст владелец из App Store Connect; без него выдуманное не подставлять.
+1. Ссылка значка App Store с меткой кампании, во всех значках: `href="https://apps.apple.com/app/apple-store/id6836263523?pt=129550662&ct=site-<ru|en>-<hero|end>&mt=8"`. APP_ID = 6836263523 (verbisto), Provider ID = 129550662 (от владельца 21.11). `ct` — свои у каждого значка (site-ru-hero / site-ru-end / site-en-hero / site-en-end); `ct=site` из ссылки владельца не брать. В страницы — только по этой очереди.
 2. SEO и оптимизация под поисковики и AI-ответы, RU и EN: title/description, canonical, hreflang ru/en/x-default, Open Graph/Twitter-карточка, JSON-LD `SoftwareApplication` (+ `FAQPage` из FAQ), `sitemap.xml`, `robots.txt` (AI-краулеры не закрывать), `llms.txt`, alt у кадров, смысловая разметка заголовков. Без сети проверку не обойти — сверять браузером на опубликованном сайте.
 Push и Pages — по-прежнему только по слову владельца.
 
