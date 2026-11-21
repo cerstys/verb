@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>E8 «Год» — B2 «Три предмета», доработка</title>
+<!-- B2 (21.11): доработка варианта B из god-sayty-E8.html#b — выбор владельца. Заголовок раздела — без изменений (слово владельца).
+     Что поменялось против B: предметы стоят на «полу» (тень под каждым), у боковых — одинаковый размер и половина над краем карточки;
+     чипы «Сегодня / День 6 / День 8» убраны — то же уже говорят листки; у листков 6 и 8 — значки; движение: при входе в вид листки
+     «день 6» и «день 8» выезжают из-за «сегодня», боковые предметы опускаются на место. Без JS и при reduced motion — конечный вид. Ночь — палитрой сайта.
+     Факты: 7 дней бесплатно в годовой; напоминание — 6-й день; оплата — 8-й. В карточке «Год» нет «Отменить…». Слова «проба» нет. Тексты черновые. -->
+<style>
+@font-face{font-family:Manrope;src:url(../docs/fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
+:root{--bg:#FCFDFE;--sheet:#F4F8F9;--raised:#FFFFFF;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--sky:#EAF4FA;
+ --leafLine:#C9DCE6;--shade:rgba(31,110,160,.32);--deep:#12354E;--hdrInk:#fff;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1A24;--sheet:#132B3D;--raised:#173349;--ink:#F5F5F5;--muted:#A1A1A1;--line:#26394A;--nest:rgba(255,255,255,.08);--nestInk:#A5C8D1;--mark:#5EC3EA;--sky:#16384F;
+ --leafLine:#2A4A62;--shade:rgba(0,0,0,.45);--deep:#0B2233;--hdrInk:#0B2233}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Manrope,system-ui,sans-serif}
+.badge{display:inline-block;line-height:0}.badge img{height:44px;width:auto}
+.ic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.w{max-width:1180px;margin:0 auto;padding:96px 24px 96px}
+h2{text-align:center;font-size:clamp(38px,6.4vw,84px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:0 auto;max-width:14ch}
+h2 em{font-style:normal;color:var(--mark)}
+.sub{text-align:center;font-size:clamp(17px,1.6vw,20px);color:var(--muted);margin:20px 0 40px}
+.note{text-align:center;font-size:14px;color:var(--muted);margin:32px 0 0}
+
+.trio{display:grid;grid-template-columns:1fr 1.3fr 1fr;align-items:end}
+.it{position:relative;text-align:center;border-radius:28px;padding:96px 32px 40px}
+.it.side{background:var(--sheet);box-shadow:0 0 0 1px var(--line);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end}
+.it.side:first-child{border-radius:28px 0 0 28px;margin-right:-1px}.it.side:last-child{border-radius:0 28px 28px 0;margin-left:-1px}
+.it.main{z-index:1;padding:352px 40px 44px;background:linear-gradient(180deg,var(--sky),var(--raised) 58%);
+ box-shadow:0 0 0 1.5px color-mix(in srgb,var(--mark) 35%,transparent),0 40px 80px -30px rgba(31,127,174,.5)}
+.it h3{margin:0;font-size:30px;font-weight:800;letter-spacing:-.02em}
+.it.main h3{font-size:52px;letter-spacing:-.035em;color:var(--nestInk)}
+.it p{margin:8px auto 0;max-width:24ch;color:var(--muted);font-size:16px}
+.it.main p{color:var(--ink);font-size:19px;max-width:22ch;margin:10px auto 28px}
+.it.main p b{color:var(--mark)}
+
+/* предметы: у каждого «пол» — размытая тень-эллипс */
+.obj{position:absolute;left:50%;translate:-50% 0}
+.obj::after{content:"";position:absolute;left:12%;right:12%;bottom:-22px;height:16px;border-radius:50%;background:var(--shade);filter:blur(10px);z-index:-1}
+.it.side .obj{top:-68px;width:128px;height:128px;display:grid;place-items:center}
+
+/* «Год»: стопка листков — сегодня спереди, за ним день 6 и день 8 */
+.pad{top:30px;width:260px;height:290px}
+.pad::after{left:8%;right:8%;bottom:-10px}
+.lf{position:absolute;left:20px;bottom:0;width:220px;height:212px;border-radius:20px;background:var(--raised);
+ box-shadow:0 0 0 1px var(--leafLine),0 10px 24px -8px var(--shade);overflow:hidden;text-align:center}
+.lf i{display:flex;align-items:center;gap:7px;font-style:normal;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--hdrInk);background:var(--mark);padding:9px 16px;justify-content:center;white-space:nowrap}
+.lf i svg{flex:none;width:15px;height:15px}
+.lf b{display:block;font-size:96px;font-weight:800;letter-spacing:-.04em;line-height:1.05;color:var(--nestInk)}
+.lf span{display:block;font-size:14px;color:var(--muted);margin-top:-2px}
+.l8 i,.l6 i{justify-content:flex-start}
+.l8 i{background:var(--deep);color:#fff}
+.l8{transform:translateY(-76px) rotate(2deg)}
+.l6{transform:translateY(-38px) rotate(-1deg)}
+.l1{transform:rotate(-2.5deg)}
+
+/* «Месяц» — один листок той же породы, но тихий; «Навсегда» — ключ */
+.leaf1{width:108px;height:120px;border-radius:16px;background:var(--raised);box-shadow:0 0 0 1px var(--leafLine),0 10px 22px -10px var(--shade);overflow:hidden;text-align:center;transform:rotate(-4deg)}
+.leaf1 i{display:block;font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--nestInk);background:var(--nest);padding:6px 0}
+.leaf1 b{display:block;font-size:50px;font-weight:800;line-height:1.3;color:var(--muted)}
+.it.side .leaf1{display:block;width:108px;height:120px;place-items:normal}.leaf1>*{width:100%}
+.it.side .key::after{bottom:4px}
+.key svg{width:112px;height:112px;transform:rotate(-8deg)}
+
+/* движение: только с JS и без reduced motion; без них — конечный вид выше */
+@media (prefers-reduced-motion:no-preference){
+ .js .l6,.js .l8{transition:transform .9s cubic-bezier(.2,1.25,.4,1)}
+ .js .l6{transition-delay:.25s}.js .l8{transition-delay:.45s}
+ .js .trio:not(.in) .l6{transform:translateY(0) rotate(-2.5deg)}
+ .js .trio:not(.in) .l8{transform:translateY(0) rotate(-2.5deg)}
+ .js .l1{transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
+ .js .trio:not(.in) .l1{transform:translateY(8px) rotate(-2.5deg)}
+ .js .it.side .obj{transition:translate .8s cubic-bezier(.2,1.2,.4,1) .7s,opacity .5s .7s}
+ .js .trio:not(.in) .it.side .obj{translate:-50% -24px;opacity:0}
+}
+
+@media (max-width:760px){
+ .w{padding:64px 16px}
+ .trio{grid-template-columns:1fr;gap:16px}
+ .it,.it.side:first-child,.it.side:last-child{border-radius:24px;margin:0}
+ .it.main{order:-1;padding:316px 22px 32px}.pad{top:16px;scale:.92}.it.main h3{font-size:44px}
+ .it.side{min-height:0;display:grid;grid-template-columns:84px 1fr;text-align:left;align-items:center;gap:4px 16px;padding:20px}
+ .it.side .obj{position:relative;left:auto;top:auto;translate:none;grid-row:1/span 2;width:84px;height:84px}
+ .js .trio:not(.in) .it.side .obj{translate:0 -12px}
+ .it.side h3{font-size:22px;align-self:end}.it.side p{margin:0;align-self:start;font-size:15px}
+ .it.side .leaf1{width:62px;height:70px}.it.side .key::after{bottom:-4px}
+ .leaf1{border-radius:10px}.leaf1 i{font-size:7px;padding:3px 0}.leaf1 b{font-size:28px}
+ .key svg{width:68px;height:68px}
+ .obj::after{bottom:-8px;height:10px}
+}
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="bell" viewBox="0 0 24 24"><path d="M12 3.5a5.5 5.5 0 0 0-5.5 5.5v3.5L4.5 16h15l-2-3.5V9A5.5 5.5 0 0 0 12 3.5zM9.8 18.5a2.2 2.2 0 0 0 4.4 0"/></symbol>
+ <symbol id="cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+</svg>
+<section id="plans"><div class="w">
+<h2>Сначала <em>занятия.</em> Оплата — потом.</h2>
+<p class="sub">Платить сразу не нужно: в годовой подписке первая неделя — ваша.</p>
+<div class="trio">
+ <div class="it side"><div class="obj leaf1" aria-hidden="true"><i>МЕСЯЦ</i><b>1</b></div><h3>Месяц</h3><p>Платёж каждый месяц, без бесплатных дней.</p></div>
+ <div class="it main">
+  <div class="obj pad" role="img" aria-label="Сегодня — первый из семи бесплатных дней; на 6-й день напомним; на 8-й — первый платёж.">
+   <div class="lf l8"><i><svg class="ic"><use href="#cal"/></svg>ДЕНЬ 8 · ОПЛАТА</i></div>
+   <div class="lf l6"><i><svg class="ic"><use href="#bell"/></svg>ДЕНЬ 6 · НАПОМНИМ</i></div>
+   <div class="lf l1"><i>СЕГОДНЯ</i><b>1</b><span>из 7 бесплатных дней</span></div>
+  </div>
+  <h3>Год</h3><p>Неделя — <b>бесплатно</b>, вся полная версия. Дальше один платёж в год.</p>
+  <a class="badge" href="#"><img src="../docs/badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a></div>
+ <div class="it side"><div class="obj key" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A9D8EE"/><stop offset=".55" stop-color="#5FA6CC"/><stop offset="1" stop-color="#2E6F94"/></linearGradient></defs>
+   <circle cx="22" cy="24" r="14" fill="url(#kg)"/><circle cx="22" cy="24" r="5.5" fill="var(--sheet)"/><path d="M31 33l22 22M44 46l5-5M49 51l4-4" stroke="url(#kg)" stroke-width="6.5" stroke-linecap="round"/><circle cx="17" cy="18" r="3" fill="#fff" opacity=".45"/></svg></div>
+  <h3>Навсегда</h3><p>Один платёж, без подписки. Можно поделиться через Семейный доступ.</p></div>
+</div>
+<p class="note">Цены — в App Store, в вашей валюте. Прогресс хранится на вашем iPhone.</p>
+</div></section>
+<script>
+document.documentElement.classList.add('js');
+const t=document.querySelector('.trio');
+new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){t.classList.add('in');o.disconnect()}},{threshold:.35}).observe(t);
+</script>
+</body></html>
