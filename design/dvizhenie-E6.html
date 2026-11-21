@@ -336,6 +336,13 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.jpg)}html:not(.js
 @media (prefers-reduced-motion:no-preference){.vcar{animation:blink 1.1s steps(1) infinite}.vscr.typing .vcar{animation:none}}
 @media (max-width:760px){.phone.vv{width:240px;padding:7px;border-radius:40px}.phone.vv .screen{border-radius:33px}}
 .cap.three{margin:0 0 12px}
+/* ?klavishi=on: нажатая клавиша всплывает выноской, как на iPhone (кадр клавиатуры — vvod-k0, клавиша 100×128 px @3x) */
+.vpop{width:8.29%;height:4.88%;filter:drop-shadow(0 .3cqw .5cqw rgba(0,0,0,.28));opacity:0;pointer-events:none}
+.vpop.on{opacity:1}
+.vpop::before,.vpop::after{content:"";position:absolute;background:#fff}
+.vpop::after{left:0;right:0;top:-6%;bottom:0;border-radius:0 0 1.2cqw 1.2cqw}
+.vpop::before{left:-22%;right:-22%;top:-112%;height:112%;border-radius:1.6cqw}
+.vpop b{position:absolute;z-index:1;left:-22%;right:-22%;top:-112%;height:100%;display:grid;place-items:center;font:400 8.6cqw/1 system-ui,-apple-system,"SF Pro Text",sans-serif;color:#000}
 
 /* камера (круг 5б): прежний телефон и композиция C/E2, внутри — тот же экран empezar в @3x (1206×2622).
    По Apple (apple.com/os/ios, 21.11): рамка устройства не пропадает при наезде; место не обводится — оно ПРИПОДНИМАЕТСЯ
@@ -455,7 +462,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.jpg)}html:not(.js
 <div class="intro after">
 <p class="subhead">Тренажёр показывает, в какой части формы ошибка, и объясняет правило.</p>
 <a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-hero&amp;mt=8"><img src="../docs/badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
-<p class="pay">Платить сразу не нужно: первые 7 дней бесплатно в годовой подписке</p>
+<p class="pay">Платить сразу не нужно: Indefinido и Perfecto бесплатны навсегда, полная версия — первые 7&nbsp;дней бесплатно в годовой подписке.</p>
 </div>
 
 <section class="tact">
@@ -528,7 +535,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.jpg)}html:not(.js
 <section class="tact" id="plans">
 <h2>Как платить</h2>
 <div class="plans">
-<div class="plan year"><b>Год</b><div class="yr" aria-hidden="true"><div class="days"><span class="d" style="--n:1"><i>1</i></span><span class="d" style="--n:2"><i>2</i></span><span class="d" style="--n:3"><i>3</i></span><span class="d" style="--n:4"><i>4</i></span><span class="d" style="--n:5"><i>5</i><span class="bell"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.2a3.8 3.8 0 0 0-3.8 3.8v2.6L2.8 11h10.4l-1.4-2.4V6A3.8 3.8 0 0 0 8 2.2zM6.4 12.6a1.6 1.6 0 0 0 3.2 0"/></svg>Напомним</span></span><span class="d" style="--n:6"><i>6</i></span><span class="d" style="--n:7"><i>7</i></span><span class="d d8" style="--n:8"><i>8</i></span></div><div class="lane"><span class="fill"></span><span class="dot"></span></div><p class="yrc"><span>7 дней бесплатно</span><span>Оплата</span></p></div><p>Платить сразу не нужно: <strong>первые 7 дней бесплатно</strong> в годовой подписке. За 2 дня до оплаты мы напомним.</p></div>
+<div class="plan year"><b>Год</b><div class="yr" aria-hidden="true"><div class="days"><span class="d" style="--n:1"><i>1</i></span><span class="d" style="--n:2"><i>2</i></span><span class="d" style="--n:3"><i>3</i></span><span class="d" style="--n:4"><i>4</i></span><span class="d" style="--n:5"><i>5</i><span class="bell"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.2a3.8 3.8 0 0 0-3.8 3.8v2.6L2.8 11h10.4l-1.4-2.4V6A3.8 3.8 0 0 0 8 2.2zM6.4 12.6a1.6 1.6 0 0 0 3.2 0"/></svg>Напомним</span></span><span class="d" style="--n:6"><i>6</i></span><span class="d" style="--n:7"><i>7</i></span><span class="d d8" style="--n:8"><i>8</i></span></div><div class="lane"><span class="fill"></span><span class="dot"></span></div><p class="yrc"><span>7&nbsp;дней бесплатно</span><span>Оплата</span></p></div><p>Платить сразу не нужно: <strong>первые 7&nbsp;дней бесплатно</strong> в годовой подписке. За 2&nbsp;дня до оплаты мы напомним.</p></div>
 <div class="plan"><b>Месяц</b><p>Без бесплатных дней. Отменить можно когда угодно.</p></div>
 <div class="plan"><b>«Навсегда»</b><p>Платите один раз — без подписки. Можно поделиться с семьёй через Семейный доступ.</p></div>
 </div>
@@ -545,12 +552,12 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.jpg)}html:not(.js
 
 <section class="faq">
 <h2>Вопросы</h2>
-<details><summary>Можно ли сначала позаниматься бесплатно?</summary><p>Да. Платить сразу не нужно: в годовой подписке первые 7 дней бесплатны. За 2 дня до оплаты мы напомним. Дальше подписка продлевается сама. Если решите не продолжать, отмените её до конца этих 7 дней: Настройки iPhone → ваше имя → Подписки. В месячной подписке бесплатных дней нет.</p></details>
+<details><summary>Можно ли сначала позаниматься бесплатно?</summary><p>Да, двумя способами. Indefinido и Perfecto бесплатны навсегда: без подписки, со всеми лицами и разбором ошибок. Остальные времена открывает полная версия — в годовой подписке первые 7&nbsp;дней бесплатны, за 2&nbsp;дня до оплаты мы напомним. Если решите не продолжать, отмените подписку до конца этих 7&nbsp;дней: Настройки iPhone → ваше имя → Подписки. В месячной подписке бесплатных дней нет.</p></details>
 <details><summary>Чем подписка отличается от «Навсегда»?</summary><p>Подписка продлевается сама, пока вы её не отмените, и делиться ею с семьёй нельзя. «Навсегда» вы покупаете один раз — и можете поделиться с семьёй через Семейный доступ.</p></details>
 <details><summary>Как отменить подписку?</summary><p>В любой момент: Настройки iPhone → ваше имя → Подписки.</p></details>
-<details><summary>Что будет с прогрессом, если подписка закончится?</summary><p>Весь прогресс останется на iPhone. Платные времена закроются для тренировки. Оформите подписку снова — продолжите с того же места.</p></details>
+<details><summary>Что будет с прогрессом, если подписка закончится?</summary><p>Весь прогресс останется на iPhone. Платные времена закроются для тренировки. Indefinido и Perfecto останутся открыты. Оформите подписку снова — продолжите с того же места.</p></details>
 <details><summary>Подойдёт, если я учу латиноамериканский испанский?</summary><p>Почти. Формы в этих пяти временах там те же, с двумя отличиями. Vosotros там не говорят — вместо него ustedes. А о «сегодня» и «на этой неделе» там чаще говорят в indefinido, а тренажёр учит, как в Испании, — perfecto.</p></details>
-<details><summary>Какие времена есть в тренажёре?</summary><p><span lang="es">Pretérito Indefinido, Pretérito Imperfecto, Pretérito Perfecto, Pretérito Pluscuamperfecto и Futuro Simple</span>.</p></details>
+<details><summary>Какие времена есть в тренажёре?</summary><p><span lang="es">Pretérito Indefinido, Pretérito Imperfecto, Pretérito Perfecto, Pretérito Pluscuamperfecto и Futuro Simple</span>. Indefinido и Perfecto — бесплатно навсегда, остальные — в полной версии.</p></details>
 <details><summary>На каком языке объяснения?</summary><p>На русском и на английском. Там, где русскоязычные и англоязычные ошибаются в разном, объяснения написаны отдельно: русскоязычным — через вид глагола, англоязычным — через английские времена.</p></details>
 <details><summary>Как набирать знаки?</summary><p>Как только вы наберёте гласную, тренажёр покажет ряд гласных со знаком — нажмите нужную. Можно и как обычно: удерживать гласную на клавиатуре iPhone.</p></details>
 <details><summary>Нужен ли интернет?</summary><p>Для занятий — нет: они идут без сети. Сеть нужна для покупки — и для отправки ответов, если вы сами включили «Помогать улучшать приложение».</p></details>
@@ -562,7 +569,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.jpg)}html:not(.js
 <p class="fin" lang="es" aria-label="comeréis"><span class="l" style="--i:0">c</span><span class="l" style="--i:1">o</span><span class="l" style="--i:2">m</span><span class="l" style="--i:3">e</span><span class="l" style="--i:4">r</span><span class="tail"><span class="l" style="--i:5"><span class="acc"><span class="e0" aria-hidden="true">e</span><span class="tick">é</span></span></span><span class="l" style="--i:6">i</span><span class="l" style="--i:7">s</span></span></p>
 <p>Учите испанский, на котором говорят в Испании? Здесь <span class="vo" lang="es">vosotros</span> тренируют наравне с остальными лицами.</p>
 <a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-end&amp;mt=8"><img src="../docs/badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
-<p class="pay">Платить сразу не нужно: первые 7 дней бесплатно в годовой подписке. Можно и помесячно, или заплатить один раз — навсегда.</p>
+<p class="pay">Indefinido и Perfecto — бесплатно навсегда. Полная версия — подписка на год (первые 7&nbsp;дней бесплатно), на месяц или одна покупка «Навсегда».</p>
 </section>
 </main>
 <footer>
@@ -650,11 +657,17 @@ const OFF=[5,155,305,455];   // окна фишек в вырезке (px @3x о
 const chips=OFF.map(o=>{const c=document.createElement('span');c.className='vchip';Object.assign(c.style,{left:(50+o)/1206*100+'%',backgroundPosition:o/(610-145)*100+'% 0'});scr.append(c);return c});
 const ce=document.createElement('span');ce.className='vchip e';Object.assign(ce.style,{left:(50+OFF[2])/1206*100+'%',backgroundPosition:OFF[2]/(610-145)*100+'% 0'});scr.append(ce);
 const W='hablareis',V='aeiou',wait=ms=>new Promise(r=>setTimeout(r,ms));let on=false,busy=false;
+// ?klavishi=on — выноска над нажатой клавишей; по умолчанию клавиатура неподвижна. Ряды кадра: верх 1794/1957/2120 px, шаг 118,4, начало 20/79/197.
+const KB=new URLSearchParams(location.search).get('klavishi')==='on',ROWS=[['qwertyuiop',20,1794],['asdfghjkl',79,1957],['zxcvbnm',197,2120]];
+const pop=document.createElement('span');pop.className='vpop';pop.append(document.createElement('b'));if(KB)scr.append(pop);
+const press=ch=>{if(!KB)return;const [r,x0,y]=ROWS.find(([r])=>r.includes(ch));
+ Object.assign(pop.style,{left:(x0+r.indexOf(ch)*118.4)/1206*100+'%',top:y/2622*100+'%'});pop.firstChild.textContent=ch;
+ pop.classList.add('on');clearTimeout(pop.t);pop.t=setTimeout(()=>pop.classList.remove('on'),130)};
 const fin=()=>{scr.classList.add('typing');t.textContent='hablaréis';chips.forEach(c=>c.classList.add('on'));ce.classList.add('on')};
 if(still){fin();return}
 async function loop(){if(busy)return;busy=true;
  while(on){scr.classList.remove('typing');t.textContent='';chips.forEach(c=>c.classList.remove('on','dn'));ce.classList.remove('on');await wait(900);
-  let n=0;for(const ch of W){if(!on)break;scr.classList.add('typing');t.textContent+=ch;if(V.includes(ch))chips[n++].classList.add('on');
+  let n=0;for(const ch of W){if(!on)break;scr.classList.add('typing');t.textContent+=ch;press(ch);if(V.includes(ch))chips[n++].classList.add('on');
    await wait(V.includes(ch)?260:190)}
   if(!on)break;await wait(800);chips[2].classList.add('dn');await wait(140);ce.classList.add('on');chips[2].classList.remove('dn');
   t.textContent='hablaréis';await wait(3600)}
