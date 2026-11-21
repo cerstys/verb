@@ -62,7 +62,7 @@
 | **В1** EN | %lld days free first | %lld days free first, then %@ a year. |
 | **В2** RU | %lld дней на пробу (one: день, few: дня) | %lld дней пробуете бесплатно, потом %@ в год. |
 | **В2** EN | %lld-day free trial | Try it free for %lld days, then %@ a year. |
-| **В3** RU | Оплата через %lld дней (one: день, few: дня) | %lld дней бесплатно, оплата %@ в год — после них. |
+| **В3** RU | Оплата через %lld дней (one: день, few: дня) | Первые %lld дней не платите, после них — %@ в год. |
 | **В3** EN | Pay in %lld days | Free for %lld days, then %@ a year. |
 
 Следующая строка `We will remind you %lld days before it ends.` («Напомним за %lld дня до списания.») подходит ко всем трём — не трогать.
