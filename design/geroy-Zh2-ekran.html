@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verbisto — первый экран, вариант Ж2 «Экран»</title>
+<style>
+@font-face{font-family:Manrope;src:url(../docs/fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
+:root{--bg:#FCFDFE;--sheet:#F4F8F9;--raised:#FFFFFF;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--miss:#A83D1B;--missBg:#FFF1EE;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1A24;--sheet:#132B3D;--raised:#173349;--ink:#F5F5F5;--muted:#A1A1A1;--line:#26394A;--nest:rgba(255,255,255,.06);--nestInk:#A5C8D1;--mark:#5EC3EA;--miss:#FF9E80;--missBg:#2D1D1B}}
+*{box-sizing:border-box}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+header{max-width:752px;margin:0 auto;padding:24px 16px 0;display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+header b{color:var(--ink);font-weight:700}
+.kicker{font-size:16px;margin:0 0 12px}
+h1{font-size:clamp(34px,6.4vw,56px);font-weight:700;letter-spacing:-.025em;line-height:1.06;margin:0}
+.subhead{font-size:clamp(18px,2.2vw,20px);line-height:1.5;max-width:60ch;margin:0 0 24px}
+.badge{display:inline-block;padding:11px;margin:-11px;line-height:0}.badge img{height:44px;width:auto}
+.pay{font-size:15px;color:var(--muted);margin:14px 0 0}
+.m{color:var(--mark)}
+.verdict{display:inline-block;background:var(--missBg);color:var(--miss);font-size:14px;font-weight:600;border-radius:8px;padding:3px 10px;margin:0}
+.rest{max-width:752px;margin:64px auto;padding:0 16px;color:var(--muted);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
+
+.hero{max-width:1040px;margin:0 auto;padding:48px 16px 0;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:center}
+@media (max-width:760px){.hero{grid-template-columns:1fr;text-align:center;justify-items:center;gap:32px}}
+.hero h1{margin-bottom:20px}
+.cam{width:380px;height:560px;max-width:92vw;overflow:hidden;border-radius:32px;background:var(--sheet);position:relative}
+.cam img{display:block;width:300px;height:auto;margin:-26px auto 0;transform-origin:50% 0}
+@media (prefers-reduced-motion:no-preference){
+/* сама, один раз: экран → наезд на ответ и отметку → на правило → назад, весь экран */
+.cam img{animation:look 7s cubic-bezier(.3,.7,.1,1) .8s both}
+@keyframes look{0%,8%{transform:none}22%,42%{transform:translateY(calc(280px - 613px*.40*1.7)) scale(1.7)}56%,74%{transform:translateY(calc(280px - 613px*.55*1.7)) scale(1.7)}90%,100%{transform:none}}
+.cam{animation:rise .9s cubic-bezier(.3,.7,.1,1) both}
+@keyframes rise{from{opacity:0;transform:perspective(1000px) rotateX(18deg) translateY(40px) scale(.94)}}
+}
+
+</style>
+</head>
+<body>
+<header><b>Verbisto</b><span>RU · EN</span></header>
+<main class="hero">
+<div>
+<p class="kicker">Тренажёр испанских глаголов для iPhone · испанский Испании</p>
+<h1>Где здесь ошибка?</h1>
+<p class="subhead">Тренажёр показывает, в какой части формы ошибка, и объясняет правило.</p>
+<a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-hero&amp;mt=8"><img src="../docs/badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
+<p class="pay">Платить сразу не нужно: первые 7 дней бесплатно в годовой подписке</p>
+</div>
+<div class="cam"><img src="../docs/img/razbor-osnova-ru.png" width="300" height="613" alt="Экран разбора на iPhone. Задание: empezar, vosotros, Indefinido. Набрано empecasteis, под ответом: «Основа — не та.», правило и примеры buscaste, tocaste."></div>
+</main>
+<p class="rest">Черновик круга 4: только первый экран. Остальная страница — как в <a href="dvizhenie-E2-perehody.html">E2</a>.</p>
+</body>
+</html>

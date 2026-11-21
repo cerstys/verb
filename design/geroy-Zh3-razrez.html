@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verbisto — первый экран, вариант Ж3 «Разрез»</title>
+<style>
+@font-face{font-family:Manrope;src:url(../docs/fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
+:root{--bg:#FCFDFE;--sheet:#F4F8F9;--raised:#FFFFFF;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--miss:#A83D1B;--missBg:#FFF1EE;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1A24;--sheet:#132B3D;--raised:#173349;--ink:#F5F5F5;--muted:#A1A1A1;--line:#26394A;--nest:rgba(255,255,255,.06);--nestInk:#A5C8D1;--mark:#5EC3EA;--miss:#FF9E80;--missBg:#2D1D1B}}
+*{box-sizing:border-box}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+header{max-width:752px;margin:0 auto;padding:24px 16px 0;display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+header b{color:var(--ink);font-weight:700}
+.kicker{font-size:16px;margin:0 0 12px}
+h1{font-size:clamp(34px,6.4vw,56px);font-weight:700;letter-spacing:-.025em;line-height:1.06;margin:0}
+.subhead{font-size:clamp(18px,2.2vw,20px);line-height:1.5;max-width:60ch;margin:0 0 24px}
+.badge{display:inline-block;padding:11px;margin:-11px;line-height:0}.badge img{height:44px;width:auto}
+.pay{font-size:15px;color:var(--muted);margin:14px 0 0}
+.m{color:var(--mark)}
+.verdict{display:inline-block;background:var(--missBg);color:var(--miss);font-size:14px;font-weight:600;border-radius:8px;padding:3px 10px;margin:0}
+.rest{max-width:752px;margin:64px auto;padding:0 16px;color:var(--muted);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
+
+.cut{height:240vh;view-timeline:--c}
+.pin{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px 16px}
+.ask{font-size:15px;color:var(--muted);margin:28px 0 0}.ask b{color:var(--ink);font-weight:600}
+.word{display:flex;justify-content:center;align-items:flex-start;font-size:clamp(64px,16vw,200px);font-weight:700;letter-spacing:-.04em;line-height:1.1;margin:4px 0 8px;white-space:nowrap}
+.word .p{display:inline-flex;flex-direction:column;align-items:center}
+.word small{font-size:13px;font-weight:500;letter-spacing:0;color:var(--muted);line-height:1.2}
+.word .end{color:var(--mark)}
+.acc{position:relative;display:inline-block}.tick{position:absolute;left:0;top:0;clip-path:inset(0 0 58% 0)}
+.gap{display:inline-block;width:.7em;text-align:center;color:var(--muted);font-weight:500}
+.vd{min-height:30px;margin:0 0 20px}
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){
+/* слово целое → расходится на инфинитив и окончание → ошибка подчёркнута → знак встаёт на место */
+.gap{animation:gap linear both;animation-timeline:--c;animation-range:contain 5% contain 30%}
+@keyframes gap{from{width:0;opacity:0}}
+.word small{animation:lab linear both;animation-timeline:--c;animation-range:contain 22% contain 32%}
+@keyframes lab{from{opacity:0;transform:translateY(-6px)}}
+.word .end{animation:endc linear both;animation-timeline:--c;animation-range:contain 0% contain 80%}
+@keyframes endc{0%,30%{color:var(--ink)}36%,90%{color:var(--miss)}}
+.acc{animation:wave linear both;animation-timeline:--c;animation-range:contain 0% contain 80%}
+@keyframes wave{0%,32%{text-decoration:underline wavy transparent 3px}38%,90%{text-decoration:underline wavy var(--miss) 3px}100%{text-decoration:underline wavy transparent 3px}}
+.tick{animation:drop linear both;animation-timeline:--c;animation-range:contain 60% contain 76%}
+@keyframes drop{from{opacity:0;transform:translateY(-.6em)}40%{opacity:1}}
+.vd .verdict{animation:vd linear both;animation-timeline:--c;animation-range:contain 34% contain 40%}
+@keyframes vd{from{opacity:0;transform:translateY(6px)}}
+}}
+.acc{text-decoration-skip-ink:none;text-underline-offset:.12em}
+
+</style>
+</head>
+<body>
+<header><b>Verbisto</b><span>RU · EN</span></header>
+<main class="cut"><div class="pin">
+<p class="kicker">Тренажёр испанских глаголов для iPhone · испанский Испании</p>
+<h1>Где здесь ошибка?</h1>
+<p class="ask"><b lang="es">comer</b> · <span lang="es">Futuro Simple · vosotros</span></p>
+<p class="word" lang="es" aria-label="comeréis: comer плюс éis"><span class="p">comer<small lang="ru">Инфинитив</small></span><span class="gap" aria-hidden="true">+</span><span class="p"><span class="end"><span class="acc">e<span class="tick" aria-hidden="true">é</span></span>is</span><small lang="ru">Окончание</small></span></p>
+<p class="vd"><span class="verdict">Нет знака.</span></p>
+<p class="subhead">Тренажёр показывает, в какой части формы ошибка, и объясняет правило.</p>
+<a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-ru-hero&amp;mt=8"><img src="../docs/badges/app-store-ru-ru.svg" alt="Загрузите в App Store" width="132" height="44"></a>
+<p class="pay">Платить сразу не нужно: первые 7 дней бесплатно в годовой подписке</p>
+</div></main>
+<p class="rest">Черновик круга 4: только первый экран. Остальная страница — как в <a href="dvizhenie-E2-perehody.html">E2</a>.</p>
+</body>
+</html>
