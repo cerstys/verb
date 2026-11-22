@@ -5,7 +5,7 @@
 // node design/instrumenty/cdp.mjs js <url> <ширина> <высота> <выход.jpg> <выражение JS (может быть промисом)> [масштаб] → выполнить сценарий на странице и снять экран
 // node design/instrumenty/cdp.mjs frames <url> <ширина> <высота> <папка> <кадров> <мс между> <прокрутка>  → серия кадров по времени (для видео)
 import { spawn } from 'node:child_process';
-import { writeFileSync, mkdtempSync } from 'node:fs';
+import { writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -15,6 +15,8 @@ const port = 9300 + Math.floor(Math.random() * 500);
 const prof = mkdtempSync(join(tmpdir(), 'cdp-'));
 const ch = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${port}`, `--user-data-dir=${prof}`, '--hide-scrollbars',
   '--no-first-run', '--force-color-profile=srgb', 'about:blank'], { stdio: 'ignore' });
+// профиль Chrome удаляется на любом выходе: без этого каждый запуск оставлял ~15 МБ в $TMPDIR (607 папок, 8,5 ГБ к 22.11)
+process.on('exit', () => { try { ch.kill('SIGKILL') } catch { } rmSync(prof, { recursive: true, force: true }) });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 let ws, id = 0, traceEv = [], traceDone; const wait = new Map();
@@ -114,5 +116,5 @@ try {
     }
     console.log(dir);
   }
-} finally { ch.kill(); }
+} finally { ch.kill(); await Promise.race([new Promise(r => ch.once('exit', r)), sleep(3000)]); }
 process.exit(0);
