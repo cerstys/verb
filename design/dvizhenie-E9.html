@@ -276,10 +276,10 @@ tr.me td{transition:color .4s}
 /* герой: волна — ОДНА непрерывная SVG-кривая по всей ширине ошибки (строится скриптом), без плиток маски — стыков нет */
 .typed .miss{position:relative}.js .typed .miss{text-decoration:none}
 .typed .miss .wv{position:absolute;left:-.02em;bottom:.03em;width:calc(100% + .04em);height:.2em;overflow:hidden;clip-path:inset(0 0 0 0);transition:clip-path .6s cubic-bezier(.3,.7,.1,1)}
-.typed .miss .wv svg{position:absolute;left:0;top:0;height:100%;overflow:visible;fill:none;stroke:var(--miss);stroke-linecap:round}
+.typed .miss .wv svg{position:absolute;left:0;top:0;width:24.36em;height:.2em;overflow:visible;fill:none;stroke:var(--miss);stroke-linecap:round}
 .sheet.s0 .typed .miss .wv{clip-path:inset(0 100% 0 0);transition:none}
 @media (prefers-reduced-motion:no-preference){.sheet:not(.s0) .typed .miss .wv svg{animation:flow 1.6s linear 3}}
-@keyframes flow{to{transform:translateX(calc(-1 * var(--lam)))}}
+@keyframes flow{to{transform:translateX(-.36em)}}
 /* смена примера — как «смена задания» в приложении: слово уходит влево, новое входит справа */
 .typed{transition:opacity .3s,transform .44s cubic-bezier(.3,.7,.1,1)}
 .typed.out{opacity:0;transform:translateX(-64px);transition:opacity .3s,transform .36s cubic-bezier(.5,0,.8,.4)}
@@ -604,10 +604,12 @@ const ex=[{ask:ask.innerHTML,w:'comereis',m:[5,6],fix:fix.innerHTML},
   fix:'<p class="verdict">Основа — не та.</p><p class="row" lang="es"><span class="pt"><span class="m">tuv</span><small lang="ru">Основа</small></span><span class="op">+</span><span class="pt"><span>isteis</span><small lang="ru">Окончание</small></span><span class="res"><span class="op">→</span> <span class="m">tuv</span>isteis</span></p>'},
  {ask:'<b lang="es">hablar</b> · <span lang="es">Pretérito Indefinido · vosotros</span>',w:'hablastes',m:[4,9],
   fix:'<p class="verdict">Окончание — не то.</p><p class="row" lang="es"><span class="pt"><span class="st">habl</span><small lang="ru">Основа</small></span><span class="op">+</span><span class="pt"><span class="m">asteis</span><small lang="ru">Окончание</small></span><span class="res"><span class="op">→</span> habl<span class="m">asteis</span></span></p>'}];
-// волна: одна кривая на всю ширину ошибки + один период в запас для течения
-function addWave(m){if(!m)return;const fs=parseFloat(getComputedStyle(m).fontSize),lam=fs*.36,w=m.getBoundingClientRect().width+fs*.04,h=fs*.2,sw=fs*.05,a=h/2-sw;
- let d=`M0 ${h/2}`;for(let x=0;x<w+lam*2;x+=lam/2)d+=` Q${x+lam/4} ${(x/(lam/2))%2?h/2+a:h/2-a} ${x+lam/2} ${h/2}`;
- const v=document.createElement('span');v.className='wv';v.innerHTML=`<svg width="${w+lam*2}" style="--lam:${lam}px" aria-hidden="true"><path d="${d}" stroke-width="${sw}"/></svg>`;m.append(v)}
+// волна (E9, по замечанию владельца 22.11): кривая в единицах em — 1 em = 100 единиц, длина 24 em с запасом, обрезается рамкой .wv по ширине ошибки.
+// Прежде: ширина в px замерялась один раз (шрифт и окно менялись — линия отставала и обрывалась), а гребень выбирался по дробному
+// остатку x/(λ/2) % 2 — после 3–4 периодов гребни шли в одну сторону. Теперь гребень — по целому счётчику, замера нет.
+const WAVE=(()=>{const L=36,H=20,A=5;let d=`M0 ${H/2}`;for(let n=0;n*L/2<2400+L;n++)d+=` Q${n*L/2+L/4} ${n%2?H/2+A:H/2-A} ${(n+1)*L/2} ${H/2}`;
+ return `<svg viewBox="0 0 ${2400+L} ${H}" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="${d}" stroke-width="5"/></svg>`})();
+function addWave(m){if(!m)return;const v=document.createElement('span');v.className='wv';v.innerHTML=WAVE;m.append(v)}
 const wait=ms=>new Promise(r=>setTimeout(r,ms));let run=0,k=0,step=0,tm=0,left=0,t0=0,armed=false,hold=new Set();
 const label=()=>{nx.firstChild.textContent=LBL[step]+' '};
 const set=n=>{step=n;S.classList.remove('s0','s1','s2','ready');S.classList.add('s'+n);label();
