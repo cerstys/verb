@@ -151,11 +151,14 @@ footer small{font-size:12px}
 .cam:not([data-s="0"]):not([data-s="4"]){border-radius:28px;box-shadow:0 0 0 1px var(--line),0 24px 60px rgba(31,110,160,.14);background:var(--raised)}
 @media (max-width:760px){
 .story{grid-template-columns:1fr;gap:0}
-.stage{grid-column:1;top:8px;z-index:1;justify-self:center;background:var(--bg);padding-bottom:8px}
+.stage{grid-column:1;top:8px;z-index:1;justify-self:center;padding-bottom:8px}
+.stage::before{content:"";position:absolute;inset:-56px -50vw -48px;z-index:-1;pointer-events:none;background:linear-gradient(transparent,var(--bg) 48px,var(--bg) calc(100% - 56px),transparent)}
 .cam{transform:scale(.8);transform-origin:50% 0;margin:0 -42px calc(613px*-.2)}
 .steps{grid-row:2}
 .steps li{min-height:55vh;text-align:center;align-items:center}
 }
+/* 320–360: телефон 420 × .8 = 336 px шире колонки → ужать (было смещение вправо и срез), строка разбора героя мельче */
+h1,h2{text-wrap:balance}p{text-wrap:pretty}
 /* въезд кадра — из черновика A (наклон → прямо) */
 @media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){
 .stage{animation:flat linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
@@ -236,7 +239,7 @@ tr.me td{transition:color .4s}
 .tact{will-change:transform,opacity;animation:rise linear both,sink linear forwards;animation-timeline:view(),view();animation-range:entry 0% entry 55vh,exit 55% exit 100%}
 @keyframes rise{from{opacity:0;transform:translateY(110px) scale(.93)}}
 @keyframes sink{to{opacity:.35;transform:scale(.96)}}
-.tact h2{background:linear-gradient(90deg,var(--ink) 50%,var(--line) 50%) 100% 0/200% 100% no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent;animation:ink linear both;animation-timeline:view();animation-range:entry 25vh entry 70vh}
+.tact h2{background:linear-gradient(90deg,var(--ink) 50%,var(--line) 50%) 100% 0/200% 100% no-repeat;padding-block:.15em;margin-block:-.15em calc(6px - .15em);-webkit-background-clip:text;background-clip:text;color:transparent;animation:ink linear both;animation-timeline:view();animation-range:entry 25vh entry 70vh}
 @keyframes ink{to{background-position:0 0}}
 .arc{stroke-dasharray:1;animation:draw linear both;animation-timeline:--belt;animation-range:cover 25% cover 52%}
 .head{animation:show linear both;animation-timeline:--belt;animation-range:cover 50% cover 54%}
@@ -291,7 +294,7 @@ tr.me td{transition:color .4s}
 .sheet.paused .dots i.run::after{animation-play-state:paused}
 @keyframes fill{from{transform:scaleX(0)}}
 
-/* «Форму набираете вы.» (круг 6): НАСТОЯЩИЙ кадр дрилла @3x (симулятор iPhone 17, 1206×2622: HABLAR · vosotros · Futuro Simple,
+/* «Форму набираете вы.» (круг 6): НАСТОЯЩИЙ кадр дрилла @3x (симулятор iPhone 17, 1206×2622: HABLAR&nbsp;·&nbsp;vosotros · Futuro Simple,
    пустое поле, системная клавиатура) в той же рамке, что телефон блока разбора. Живое — только текст в поле; ряд знака,
    активная «Проверить» и крестик поля — вырезки из кадров того же экрана (набрано hablareis; после касания «e»).
    Координаты — доли кадра в пикселях @3x; кегль поля — по кадру (глиф h 46 px высотой, ширина hablareis 243 px). */
@@ -300,19 +303,19 @@ tr.me td{transition:color .4s}
 .screen.vscr{container-type:inline-size;background:url(img/vvod-en-k0-3x.jpg) 0 0/100% 100%}
 html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(.js) .vscr>span{display:none}
 .vscr>span{position:absolute;display:block}
-.vmask{left:12.44%;top:33.75%;width:75.46%;height:5.15%;background:#FCFEFE;opacity:0}
+.vmask{left:12.44%;top:34.33%;width:75.46%;height:4.2%;background:#FCFEFE;opacity:0}
 .vclr{left:79.19%;top:34.78%;width:7.05%;height:3.2%;background:url(img/vvod-krestik-3x.png) 0 0/100% 100%;opacity:0}
 .vscr>.vval{left:13.0%;top:34.74%;height:3.17%;display:flex;align-items:center;white-space:pre;color:#000;
  font:400 var(--vfs,5.14cqw)/1 system-ui,-apple-system,"SF Pro Text",sans-serif;letter-spacing:var(--vls,0)}
 .vt{transform:translateY(var(--vdy,.4cqw))}
 .vcar{flex:none;width:.5cqw;height:100%;background:#12354E;margin-left:.04cqw;border-radius:.2cqw}
 .vchips{left:4.15%;top:52.17%;width:50.58%;height:7.17%;opacity:0}
-.vchip{position:absolute;top:52.17%;height:6.865%;width:12.02%;background-image:url(img/vvod-fishki-3x.png);background-size:420.7% 104.44%;
+.vchip{position:absolute;top:52.17%;height:6.18%;width:12.02%;background-image:url(img/vvod-fishki-3x.png);background-size:420.7% 116.05%;
  opacity:0;transform:scale(.6);transition:opacity .16s,transform .32s cubic-bezier(.3,1.6,.5,1)}
 .vchip.on{opacity:1;transform:none}
 .vchip.e{background-image:url(img/vvod-fishki-e-3x.png);transition:opacity .12s,transform .18s}
 .vchip.dn{transform:scale(.9)}
-.vbtn{left:35.16%;top:59.04%;width:61.03%;height:5.95%;background:url(img/vvod-en-check-3x.png) 0 0/100% 100%;opacity:0;transition:opacity .25s}
+.vbtn{left:35.16%;top:59.04%;width:61.03%;height:5.95%;background:url(img/vvod-en-check-3x.png) 0 0/100% 100%;opacity:0;transition:opacity .1s}
 .vscr.typing .vmask,.vscr.typing .vclr,.vscr.typing .vbtn{opacity:1}
 @media (prefers-reduced-motion:no-preference){.vcar{animation:blink 1.1s steps(1) infinite}.vscr.typing .vcar{animation:none}}
 @media (max-width:760px){.phone.vv{width:248px}}
@@ -360,7 +363,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 #plans{--sky:#EAF4FA;--leafLine:#C9DCE6;--shade:rgba(31,110,160,.32);--deep:#12354E;--hdrInk:#fff}
 @media (prefers-color-scheme:dark){#plans{--sky:#16384F;--leafLine:#2A4A62;--shade:rgba(0,0,0,.45);--deep:#0B2233;--hdrInk:#0B2233}}
 #plans .wide{position:relative;left:50%;translate:-50% 0;width:min(1132px,calc(100vw - 32px))}
-#plans h2{text-align:center;font-size:clamp(38px,6.4vw,84px);letter-spacing:-.04em;line-height:1;margin:0 auto;max-width:14ch}
+#plans h2{text-align:center;font-size:clamp(38px,6.4vw,84px);letter-spacing:-.04em;line-height:1;margin:-.15em auto;max-width:14ch}
 #plans h2 em{font-style:normal;color:var(--mark)}
 #plans .sub{text-align:center;font-size:clamp(17px,1.6vw,20px);color:var(--muted);margin:20px auto 40px;max-width:60ch;text-wrap:balance}
 #plans .note{text-align:center;font-size:14px;color:var(--muted);margin:32px auto 0}
@@ -426,6 +429,8 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 .phone::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url(img/ramka-iphone17-mist-blue.png) 0 0/100% 100% no-repeat;filter:drop-shadow(0 18px 22px rgba(31,110,160,.18))}
 .phone{aspect-ratio:1350/2760}
 .phone>.screen{position:absolute;left:5.333%;top:2.5%;width:89.333%;height:95%;aspect-ratio:auto}
+/* 320–360 (QA 22.11): телефон 420 × .8 = 336 px шире колонки → ужать (было смещение вправо и срез); строка разбора героя мельче */
+@media (max-width:360px){.cam{transform:scale(.68);margin:0 -67px calc(760px*-.32)}.fix .row{font-size:26px}}
 </style>
 
 </head>
@@ -439,7 +444,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 </div>
 
 <div class="sheet" aria-label="Example: the answer is missing an accent, and the app shows where it goes">
-<p class="ask"><b lang="es">comer</b> · <span lang="es">Futuro Simple · vosotros</span></p>
+<p class="ask"><b lang="es">comer</b> · <span lang="es">Futuro Simple&nbsp;·&nbsp;vosotros</span></p>
 <p class="typed" lang="es" aria-label="Typed answer: comereis"><span style="--i:0">c</span><span style="--i:1">o</span><span style="--i:2">m</span><span style="--i:3">e</span><span style="--i:4">r</span><span class="miss" style="--i:5">e</span><span style="--i:6">i</span><span style="--i:7">s</span><span class="caret" aria-hidden="true"></span></p>
 <div class="fix">
 <p class="verdict">The accent is missing.</p>
@@ -497,7 +502,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 <p class="lead">Russian and English speakers trip up in different places, and where they do, the explanations are written separately. Here’s one topic, explained two ways.</p>
 <div class="lang2">
 <figure><figcaption>For Russian speakers</figcaption><blockquote><span class="h" lang="es">Imperfecto</span><span lang="es">Ayer jugamos</span> — ‘we played yesterday’, and in Russian the verb is perfective: it happened and it’s over, so it’s the indefinido. <b>An imperfective verb doesn’t always mean the imperfecto</b>: ‘I lived in Madrid for two years’ is imperfective in Russian, but the period is closed, so it’s the indefinido: <span lang="es">viví dos años en Madrid</span>.</blockquote></figure>
-<figure lang="en"><figcaption lang="en">For English speakers</figcaption><blockquote><span class="h" lang="es">Imperfecto</span><b>English 'played' covers both</b>: 'we played yesterday' is one finished event — <span lang="es">ayer jugamos</span>, the indefinido. Where English could say 'used to' or 'was ...ing', Spanish usually takes the imperfecto — and for descriptions too: 'the house was big' — <span lang="es">la casa era grande</span>.</blockquote></figure>
+<figure lang="en"><figcaption lang="en">For English speakers</figcaption><blockquote><span class="h" lang="es">Imperfecto</span><b>English ‘played’ covers both</b>: ‘we played yesterday’ is one finished event — <span lang="es">ayer jugamos</span>, the indefinido. Where English could say ‘used to’ or ‘was ...ing’, Spanish usually takes the imperfecto — and for descriptions too: ‘the house was big’ — <span lang="es">la casa era grande</span>.</blockquote></figure>
 </div>
 </section>
 
@@ -522,7 +527,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 </section>
 
 <section class="tact" id="plans"><div class="wide">
-<h2><em>Practise</em> first. Pay later.</h2>
+<h2><em>Practise</em> first. Pay&nbsp;later.</h2>
 <p class="sub">No need to pay up front: on the yearly plan, the first week is free.</p>
 <div class="trio">
  <div class="it side"><div class="obj leaf1" aria-hidden="true"><i>MONTH</i><b>1</b></div><h3>Monthly</h3><p>Pay each month. No free days.</p></div>
@@ -562,7 +567,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 </section>
 
 <section class="end"><span class="glint g3" aria-hidden="true"></span>
-<p class="ask"><b lang="es">comer</b> · <span lang="es">Futuro Simple · vosotros</span></p>
+<p class="ask"><b lang="es">comer</b> · <span lang="es">Futuro Simple&nbsp;·&nbsp;vosotros</span></p>
 <p class="fin" lang="es" aria-label="comeréis"><span class="l" style="--i:0">c</span><span class="l" style="--i:1">o</span><span class="l" style="--i:2">m</span><span class="l" style="--i:3">e</span><span class="l" style="--i:4">r</span><span class="tail"><span class="l" style="--i:5"><span class="acc"><span class="e0" aria-hidden="true">e</span><span class="tick">é</span></span></span><span class="l" style="--i:6">i</span><span class="l" style="--i:7">s</span></span></p>
 <p>Learning the Spanish spoken in Spain? Here you practise <span class="vo" lang="es">vosotros</span> just like every other person.</p>
 <a class="badge" href="https://apps.apple.com/app/apple-store/id[APP_ID]?pt=[PROVIDER_ID]&amp;ct=site-en-end&amp;mt=8"><img src="../docs/badges/app-store-en-us.svg" alt="Download on the App Store" width="132" height="44"></a>
@@ -570,7 +575,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 </section>
 </main>
 <footer>
-<div class="links"><span><a href="../docs/privacy-en.html">Privacy</a> · <a href="../docs/support-en.html">Support</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a></span></div>
+<div class="links"><span><a href="../docs/privacy-en.html">Privacy</a>&nbsp;· <a href="../docs/support-en.html">Support</a>&nbsp;· <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a></span></div>
 <small>Apple, the Apple logo and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</small>
 </footer>
 </div><script>
@@ -605,9 +610,9 @@ document.querySelectorAll('.card,.rule,.samples,.lang2,.trio,.fit,.end').forEach
 const S=document.querySelector('.sheet'),ask=S.querySelector('.ask'),typed=S.querySelector('.typed'),fix=S.querySelector('.fix'),nx=S.querySelector('.next'),dots=[...S.querySelectorAll('.dots i')];
 const LBL=['Show','Why?','Another one'],T=[1800,2800,6000];
 const ex=[{ask:ask.innerHTML,w:'comereis',m:[5,6],fix:fix.innerHTML},
- {ask:'<b lang="es">tener</b> · <span lang="es">Pretérito Indefinido · vosotros</span>',w:'tenisteis',m:[0,3],
+ {ask:'<b lang="es">tener</b> · <span lang="es">Pretérito Indefinido&nbsp;·&nbsp;vosotros</span>',w:'tenisteis',m:[0,3],
   fix:'<p class="verdict">The stem is off.</p><p class="row" lang="es"><span class="pt"><span class="m">tuv</span><small lang="en">Stem</small></span><span class="op">+</span><span class="pt"><span>isteis</span><small lang="en">Ending</small></span><span class="res"><span class="op">→</span> <span class="m">tuv</span>isteis</span></p>'},
- {ask:'<b lang="es">hablar</b> · <span lang="es">Pretérito Indefinido · vosotros</span>',w:'hablastes',m:[4,9],
+ {ask:'<b lang="es">hablar</b> · <span lang="es">Pretérito Indefinido&nbsp;·&nbsp;vosotros</span>',w:'hablastes',m:[4,9],
   fix:'<p class="verdict">The ending is off.</p><p class="row" lang="es"><span class="pt"><span class="st">habl</span><small lang="en">Stem</small></span><span class="op">+</span><span class="pt"><span class="m">asteis</span><small lang="en">Ending</small></span><span class="res"><span class="op">→</span> habl<span class="m">asteis</span></span></p>'}];
 // волна (E9, по замечанию владельца 22.11): кривая в единицах em — 1 em = 100 единиц, длина 24 em с запасом, обрезается рамкой .wv по ширине ошибки.
 // Прежде: ширина в px замерялась один раз (шрифт и окно менялись — линия отставала и обрывалась), а гребень выбирался по дробному
@@ -631,7 +636,7 @@ async function show(i){
  const me=++run,e=ex[i];clearTimeout(tm);armed=false;set(0);
  const html=e.w.slice(0,e.m[0])+'<span class="miss">'+e.w.slice(e.m[0],e.m[1])+'</span>'+e.w.slice(e.m[1]);
  if(still){ask.innerHTML=e.ask;fix.innerHTML=e.fix;typed.innerHTML=html;typed.setAttribute('aria-label',e.w);addWave(typed.querySelector('.miss'));return}
- if(me>1){typed.classList.add('out');await wait(360);if(me!==run)return;typed.classList.remove('out');typed.classList.add('inr');void typed.offsetWidth}
+ if(me>1){typed.classList.add('out');await wait(460);if(me!==run)return;typed.classList.remove('out');typed.classList.add('inr');void typed.offsetWidth}
  ask.innerHTML=e.ask;fix.innerHTML=e.fix;typed.setAttribute('aria-label',e.w);
  typed.innerHTML='<span class="caret" aria-hidden="true"></span>';typed.classList.remove('inr');const caret=typed.firstChild;
  await wait(300);let ms=null;
@@ -659,7 +664,7 @@ const W='hablareis',V='aeiou',wait=ms=>new Promise(r=>setTimeout(r,ms));let on=f
 const fin=()=>{scr.classList.add('typing');t.textContent='hablaréis';chips.forEach(c=>c.classList.add('on'));ce.classList.add('on')};
 if(still){fin();return}
 async function loop(){if(busy)return;busy=true;
- while(on){scr.classList.remove('typing');t.textContent='';chips.forEach(c=>c.classList.remove('on','dn'));ce.classList.remove('on');await wait(900);
+ while(on){chips.forEach(c=>c.classList.remove('on','dn'));ce.classList.remove('on');await wait(180);scr.classList.remove('typing');t.textContent='';await wait(720);
   let n=0;for(const ch of W){if(!on)break;scr.classList.add('typing');t.textContent+=ch;if(V.includes(ch))chips[n++].classList.add('on');
    await wait(V.includes(ch)?260:190)}
   if(!on)break;await wait(800);chips[2].classList.add('dn');await wait(140);ce.classList.add('on');chips[2].classList.remove('dn');
