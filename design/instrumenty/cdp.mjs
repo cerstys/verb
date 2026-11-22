@@ -3,7 +3,7 @@
 // node design/instrumenty/cdp.mjs shot <url> <ширина> <высота> <выход.jpg> <прокрутка: px | "p0.5" (доля страницы) | "#селектор"> [масштаб] [ждать мс]
 // node design/instrumenty/cdp.mjs el <url> <ширина> <высота> <выход.png> <селектор> <масштаб> [ждать]  → снимок элемента (RM=1 — reduced motion, DARK=1 — ночь)
 // node design/instrumenty/cdp.mjs js <url> <ширина> <высота> <выход.jpg> <выражение JS (может быть промисом)> [масштаб] → выполнить сценарий на странице и снять экран
-// node design/instrumenty/cdp.mjs frames <url> <ширина> <высота> <папка> <кадров> <мс между> <прокрутка>  → серия кадров по времени (для видео)
+// node design/instrumenty/cdp.mjs frames <url> <ширина> <высота> <папка> <кадров> <мс между> <прокрутка>  → серия кадров по времени (для видео) (DO=<js> — сценарий перед серией)
 import { spawn } from 'node:child_process';
 import { writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -110,6 +110,7 @@ try {
   } else if (mode === 'frames') {
     const [w, h, dir, n, gap, s = '0'] = a;
     await open(+w, +h); await scrollTo(s);
+    if (process.env.DO) await ev(process.env.DO);   // DO — сценарий перед серией (напр. открыть и закрыть раскрывашку)
     for (let i = 0; i < +n; i++) {
       const r = await cmd('Page.captureScreenshot', { format: 'jpeg', quality: 80 });
       writeFileSync(join(dir, String(i).padStart(3, '0') + '.jpg'), Buffer.from(r.data, 'base64')); await sleep(+gap);

@@ -98,7 +98,9 @@ tr.me{background:var(--nest)} tr.me th,tr.me td{color:var(--nestInk)} tr.me th{p
 .faq details p{min-height:0;overflow:hidden}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.faq details::details-content,.faq summary::after{transition:none}}
-.faq p{margin:0;padding-top:8px;color:var(--muted);max-width:60ch}
+.faq p{margin:0;color:var(--muted);max-width:60ch}
+/* отступ ответа — внутри сворачиваемой части: padding у p не ужимается до 0 и пропадал скачком 8 px в конце закрытия */
+.faq p::before{content:"";display:block;height:8px}
 .faq h2{font-size:clamp(28px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:0 0 16px}
 
 .end{text-align:center}
