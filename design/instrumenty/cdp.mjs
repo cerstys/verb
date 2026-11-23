@@ -16,7 +16,7 @@ const prof = mkdtempSync(join(tmpdir(), 'cdp-'));
 const ch = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${port}`, `--user-data-dir=${prof}`, '--hide-scrollbars',
   '--no-first-run', '--force-color-profile=srgb', 'about:blank'], { stdio: 'ignore' });
 // профиль Chrome удаляется на любом выходе: без этого каждый запуск оставлял ~15 МБ в $TMPDIR (607 папок, 8,5 ГБ к 22.11)
-process.on('exit', () => { try { ch.kill('SIGKILL') } catch { } rmSync(prof, { recursive: true, force: true }) });
+process.on('exit', () => { try { ch.kill('SIGKILL') } catch { } try { rmSync(prof, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }) } catch { } });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 let ws, id = 0, traceEv = [], traceDone; const wait = new Map();
@@ -34,8 +34,9 @@ const ev = async expr => (await cmd('Runtime.evaluate', { expression: expr, awai
 
 async function open(w, h, scale = 1) {
   await cmd('Page.enable');
-  if (process.env.RM) await cmd('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
-  if (process.env.DARK) await cmd('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: 'dark' }] });
+  // один вызов: второй setEmulatedMedia затирает признаки первого (RM пропадал при DARK)
+  const feats = [process.env.RM && { name: 'prefers-reduced-motion', value: 'reduce' }, process.env.DARK && { name: 'prefers-color-scheme', value: 'dark' }].filter(Boolean);
+  if (feats.length) await cmd('Emulation.setEmulatedMedia', { features: feats });
   await cmd('Emulation.setDeviceMetricsOverride', { width: w, height: h, deviceScaleFactor: scale, mobile: w < 600 });
   if (process.env.CSS) await cmd('Page.addScriptToEvaluateOnNewDocument', { source: `addEventListener('DOMContentLoaded',()=>{const s=document.createElement('style');s.textContent=${JSON.stringify(process.env.CSS)};document.head.append(s)})` });
   await cmd('Page.navigate', { url });

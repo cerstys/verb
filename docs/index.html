@@ -9,6 +9,7 @@
 <link rel="alternate" hreflang="ru" href="https://verbisto.itoroapps.com/">
 <link rel="alternate" hreflang="en" href="https://verbisto.itoroapps.com/en.html">
 <link rel="alternate" hreflang="x-default" href="https://verbisto.itoroapps.com/en.html">
+<link rel="preload" href="fonts/Manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="describedby" type="text/markdown" href="/llms.txt">
 <meta name="apple-itunes-app" content="app-id=6836263523">
 <meta property="og:type" content="website">
@@ -28,7 +29,7 @@
 <meta name="twitter:image" content="https://verbisto.itoroapps.com/img/og-ru.jpg">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MobileApplication", "name": "Verbisto", "operatingSystem": "iOS 26", "applicationCategory": "EducationalApplication", "inLanguage": ["ru", "en"], "description": "Вы пишете форму глагола сами, а тренажёр показывает, где ошибка: в основе, окончании или ударении. И объясняет правило именно для этого места. Испанский Испании, iPhone, правила на русском и английском.", "url": "https://verbisto.itoroapps.com/", "sameAs": "https://apps.apple.com/app/id6836263523", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "FAQPage", "inLanguage": "ru", "mainEntity": [{"@type": "Question", "name": "Можно ли сначала позаниматься бесплатно?", "acceptedAnswer": {"@type": "Answer", "text": "Да, двумя способами. Indefinido и Perfecto бесплатны навсегда: без подписки, со всеми лицами и разбором ошибок. Остальные времена открывает полная версия — в годовой подписке первые 7 дней бесплатны, за 2 дня до оплаты мы напомним. Если решите не продолжать, отмените подписку до конца этих 7 дней: Настройки iPhone → ваше имя → Подписки. В месячной подписке бесплатных дней нет."}}, {"@type": "Question", "name": "Чем подписка отличается от «Навсегда»?", "acceptedAnswer": {"@type": "Answer", "text": "Подписка продлевается сама, пока вы её не отмените, и делиться ею с семьёй нельзя. «Навсегда» вы покупаете один раз — и можете поделиться с семьёй через Семейный доступ."}}, {"@type": "Question", "name": "Как отменить подписку?", "acceptedAnswer": {"@type": "Answer", "text": "В любой момент: Настройки iPhone → ваше имя → Подписки."}}, {"@type": "Question", "name": "Что будет с прогрессом, если подписка закончится?", "acceptedAnswer": {"@type": "Answer", "text": "Весь прогресс останется на iPhone. Платные времена закроются для тренировки. Indefinido и Perfecto останутся открыты. Оформите подписку снова — продолжите с того же места."}}, {"@type": "Question", "name": "Подойдёт, если я учу латиноамериканский испанский?", "acceptedAnswer": {"@type": "Answer", "text": "Почти. Формы в этих временах там те же, с двумя отличиями. Vosotros там не говорят — вместо него ustedes. А о «сегодня» и «на этой неделе» там чаще говорят в indefinido, а тренажёр учит, как в Испании, — perfecto."}}, {"@type": "Question", "name": "Какие времена есть в тренажёре?", "acceptedAnswer": {"@type": "Answer", "text": "Pretérito Indefinido, Pretérito Imperfecto, Pretérito Perfecto, Pretérito Pluscuamperfecto и Futuro Simple. Indefinido и Perfecto — бесплатно навсегда, остальные — в полной версии."}}, {"@type": "Question", "name": "На каком языке объяснения?", "acceptedAnswer": {"@type": "Answer", "text": "На русском и на английском. Там, где русскоязычные и англоязычные ошибаются в разном, объяснения написаны отдельно: русскоязычным — через вид глагола, англоязычным — через английские времена."}}, {"@type": "Question", "name": "Как набирать знаки?", "acceptedAnswer": {"@type": "Answer", "text": "Как только вы наберёте гласную, тренажёр покажет ряд гласных со знаком — нажмите нужную. Можно и как обычно: удерживать гласную на клавиатуре iPhone."}}, {"@type": "Question", "name": "Нужен ли интернет?", "acceptedAnswer": {"@type": "Answer", "text": "Для занятий — нет: они идут без сети. Сеть нужна для покупки — и для отправки ответов, если вы сами включили «Помогать улучшать приложение»."}}, {"@type": "Question", "name": "Какой нужен iPhone?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone с iOS 26 или новее."}}]}]}</script>
 <style>
-@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
+@font-face{font-family:Manrope;src:url(fonts/Manrope.woff2) format("woff2");font-weight:200 800;font-display:swap}
 :root{--bg:#FCFDFE;--sheet:#F4F8F9;--raised:#FFFFFF;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--miss:#A83D1B;--missBg:#FFF1EE;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#0D1A24;--sheet:#132B3D;--raised:#173349;--ink:#F5F5F5;--muted:#A1A1A1;--line:#26394A;--nest:rgba(255,255,255,.06);--nestInk:#A5C8D1;--mark:#5EC3EA;--miss:#FF9E80;--missBg:#2D1D1B}}
 *{box-sizing:border-box}
@@ -125,7 +126,8 @@ html{scroll-behavior:smooth}
 .end{text-align:center}
 .end p{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.015em;margin:0 0 24px}
 footer{margin-top:80px;padding-top:16px;border-top:1px solid var(--line);flex-direction:column;gap:6px}
-footer .links{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .links{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer .ig{display:inline-flex;align-items:center;gap:15px;margin:9px 0;color:inherit;text-decoration:none}footer .ig svg{flex:none;display:block;width:29px;height:29px}footer .ig:hover{color:var(--ink)}
 footer small{font-size:12px}
 .subhead{font-size:clamp(18px,2.2vw,20px);line-height:1.5;color:var(--ink);max-width:60ch;margin:-12px auto 28px}
 .note{font-size:15px;margin:20px 0 0;max-width:62ch}
@@ -286,28 +288,28 @@ tr.me td{transition:color .4s}
 @keyframes fill{from{transform:scaleX(0)}}
 .typer{pointer-events:none;-webkit-user-select:none;user-select:none;margin:0 0 28px;display:flex;justify-content:center}
 .phone.vv{position:relative;left:auto;top:auto;transform:none;transition:none}
-.screen.vscr{container-type:inline-size;background:url(img/vvod-k0-3x.jpg) 0 0/100% 100%}
-html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.jpg)}html:not(.js) .vscr>span{display:none}
+.screen.vscr{container-type:inline-size;background:url(img/vvod-k0-3x.webp) 0 0/100% 100%}
+html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.webp)}html:not(.js) .vscr>span{display:none}
 .vscr>span{position:absolute;display:block}
 .vmask{left:12.44%;top:34.33%;width:75.46%;height:4.2%;background:#FCFEFE;opacity:0}
-.vclr{left:79.19%;top:34.78%;width:7.05%;height:3.2%;background:url(img/vvod-krestik-3x.png) 0 0/100% 100%;opacity:0}
+.vclr{left:79.19%;top:34.78%;width:7.05%;height:3.2%;background:url(img/vvod-krestik-3x.webp) 0 0/100% 100%;opacity:0}
 .vscr>.vval{left:13.0%;top:34.74%;height:3.17%;display:flex;align-items:center;white-space:pre;color:#000;
  font:400 var(--vfs,5.14cqw)/1 system-ui,-apple-system,"SF Pro Text",sans-serif;letter-spacing:var(--vls,0)}
 .vt{transform:translateY(var(--vdy,.4cqw))}
 .vcar{flex:none;width:.5cqw;height:100%;background:#12354E;margin-left:.04cqw;border-radius:.2cqw}
 .vchips{left:4.15%;top:52.17%;width:50.58%;height:7.17%;opacity:0}
-.vchip{position:absolute;top:52.17%;height:6.18%;width:12.02%;background-image:url(img/vvod-fishki-3x.png);background-size:420.7% 116.05%;
+.vchip{position:absolute;top:52.17%;height:6.18%;width:12.02%;background-image:url(img/vvod-fishki-3x.webp);background-size:420.7% 116.05%;
  opacity:0;transform:scale(.6);transition:opacity .16s,transform .32s cubic-bezier(.3,1.6,.5,1)}
 .vchip.on{opacity:1;transform:none}
-.vchip.e{background-image:url(img/vvod-fishki-e-3x.png);transition:opacity .12s,transform .18s}
+.vchip.e{background-image:url(img/vvod-fishki-e-3x.webp);transition:opacity .12s,transform .18s}
 .vchip.dn{transform:scale(.9)}
-.vbtn{left:28.19%;top:59.04%;width:67.99%;height:5.95%;background:url(img/vvod-proverit-3x.png) 0 0/100% 100%;opacity:0;transition:opacity .1s}
+.vbtn{left:28.19%;top:59.04%;width:67.99%;height:5.95%;background:url(img/vvod-proverit-3x.webp) 0 0/100% 100%;opacity:0;transition:opacity .1s}
 .vscr.typing .vmask,.vscr.typing .vclr,.vscr.typing .vbtn{opacity:1}
 @media (prefers-reduced-motion:no-preference){.vcar{animation:blink 1.1s steps(1) infinite}.vscr.typing .vcar{animation:none}}
 @media (max-width:760px){.phone.vv{width:248px}}
 .cap.three{margin:0 0 12px}
-:root{--shot:url(img/razbor-osnova-ru-3x.jpg)}
-@media (prefers-color-scheme:dark){:root{--shot:url(img/razbor-osnova-ru-3x-noch.jpg)}}
+:root{--shot:url(img/razbor-osnova-ru-3x.webp)}
+@media (prefers-color-scheme:dark){:root{--shot:url(img/razbor-osnova-ru-3x-noch.webp)}}
 .cam{width:420px;height:760px;border-radius:0;overflow:hidden;-webkit-mask:linear-gradient(transparent,#000 4%,#000 96%,transparent);mask:linear-gradient(transparent,#000 4%,#000 96%,transparent)}
 .phone{position:absolute;left:0;top:0;width:310px;transform-origin:0 0;transition:transform 1.1s cubic-bezier(.3,.7,.1,1)}
 .screen{position:relative;border-radius:13%/6%;overflow:hidden;aspect-ratio:1206/2622;background:var(--shot) 0 0/100% 100%}
@@ -397,7 +399,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-k2-3x.jpg)}html:not(.js
  .key svg{width:68px;height:68px}
  .obj::after{bottom:-8px;height:10px}
 }
-.phone::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url(img/ramka-iphone17-mist-blue.png) 0 0/100% 100% no-repeat;filter:drop-shadow(0 18px 22px rgba(31,110,160,.18))}
+.phone::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url(img/ramka-iphone17-mist-blue.webp) 0 0/100% 100% no-repeat;filter:drop-shadow(0 18px 22px rgba(31,110,160,.18))}
 .phone{aspect-ratio:1350/2760}
 .phone>.screen{position:absolute;left:5.333%;top:2.5%;width:89.333%;height:95%;aspect-ratio:auto}
 @media (max-width:360px){.cam{transform:scale(.68);margin:0 -67px calc(760px*-.32)}.fix .row{font-size:26px}}

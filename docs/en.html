@@ -9,6 +9,7 @@
 <link rel="alternate" hreflang="ru" href="https://verbisto.itoroapps.com/">
 <link rel="alternate" hreflang="en" href="https://verbisto.itoroapps.com/en.html">
 <link rel="alternate" hreflang="x-default" href="https://verbisto.itoroapps.com/en.html">
+<link rel="preload" href="fonts/Manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="describedby" type="text/markdown" href="/llms.txt">
 <meta name="apple-itunes-app" content="app-id=6836263523">
 <meta property="og:type" content="website">
@@ -28,7 +29,7 @@
 <meta name="twitter:image" content="https://verbisto.itoroapps.com/img/og-en.jpg">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MobileApplication", "name": "Verbisto", "operatingSystem": "iOS 26", "applicationCategory": "EducationalApplication", "inLanguage": ["ru", "en"], "description": "You type each verb form yourself, and the app shows you exactly where it went wrong: the stem, the ending or the accent. Then it explains the rule for that one spot. Spanish from Spain, on iPhone, with explanations in English and Russian.", "url": "https://verbisto.itoroapps.com/en.html", "sameAs": "https://apps.apple.com/app/id6836263523", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Can I practise for free first?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in two ways. Indefinido and Perfecto are free forever: no subscription, every person, full mistake breakdowns. The other tenses come with the full version. On the yearly plan the first 7 days are free, and we’ll remind you 2 days before you pay. If you decide not to carry on, cancel before those 7 days are up: iPhone Settings → your name → Subscriptions. The monthly plan has no free days."}}, {"@type": "Question", "name": "How is a subscription different from Lifetime?", "acceptedAnswer": {"@type": "Answer", "text": "A subscription renews on its own until you cancel it, and you can’t share it with your family. Lifetime is a one-time purchase, and you can share it with your family through Family Sharing."}}, {"@type": "Question", "name": "How do I cancel my subscription?", "acceptedAnswer": {"@type": "Answer", "text": "Any time: iPhone Settings → your name → Subscriptions."}}, {"@type": "Question", "name": "What happens to my progress if my subscription ends?", "acceptedAnswer": {"@type": "Answer", "text": "All of it stays on your iPhone. The paid tenses close for practice. Indefinido and Perfecto stay open. Subscribe again and you pick up right where you left off."}}, {"@type": "Question", "name": "Will it work if I’m learning Latin American Spanish?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly. The forms in these tenses are the same there, with two differences. Vosotros isn’t used: people say ustedes instead. And for ‘today’ or ‘this week’ Latin America tends to use the indefinido, while the app teaches the usage of Spain: the perfecto."}}, {"@type": "Question", "name": "Which tenses does it cover?", "acceptedAnswer": {"@type": "Answer", "text": "Pretérito Indefinido, Pretérito Imperfecto, Pretérito Perfecto, Pretérito Pluscuamperfecto and Futuro Simple. Indefinido and Perfecto are free forever; the rest come with the full version."}}, {"@type": "Question", "name": "What language are the explanations in?", "acceptedAnswer": {"@type": "Answer", "text": "English and Russian. Where English and Russian speakers go wrong in different ways, the explanations are written separately: through English tenses for English speakers, through verb aspect for Russian speakers."}}, {"@type": "Question", "name": "How do I type accents?", "acceptedAnswer": {"@type": "Answer", "text": "As soon as you type a vowel, the app shows a row of accented vowels: tap the one you need. Or do it the usual way and hold the vowel down on the iPhone keyboard."}}, {"@type": "Question", "name": "Do I need an internet connection?", "acceptedAnswer": {"@type": "Answer", "text": "Not for practice: it works offline. You need a connection to make a purchase, and to send your answers if you’ve turned on “Help improve the app” yourself."}}, {"@type": "Question", "name": "Which iPhone do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Any iPhone running iOS 26 or later."}}]}]}</script>
 <style>
-@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
+@font-face{font-family:Manrope;src:url(fonts/Manrope.woff2) format("woff2");font-weight:200 800;font-display:swap}
 :root{--bg:#FCFDFE;--sheet:#F4F8F9;--raised:#FFFFFF;--ink:#1C1C1C;--muted:#646464;--line:#D5DEE2;--nest:#D6E7F0;--nestInk:#12354E;--mark:#1F7FAE;--miss:#A83D1B;--missBg:#FFF1EE;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#0D1A24;--sheet:#132B3D;--raised:#173349;--ink:#F5F5F5;--muted:#A1A1A1;--line:#26394A;--nest:rgba(255,255,255,.06);--nestInk:#A5C8D1;--mark:#5EC3EA;--miss:#FF9E80;--missBg:#2D1D1B}}
 *{box-sizing:border-box}
@@ -125,7 +126,8 @@ html{scroll-behavior:smooth}
 .end{text-align:center}
 .end p{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.015em;margin:0 0 24px}
 footer{margin-top:80px;padding-top:16px;border-top:1px solid var(--line);flex-direction:column;gap:6px}
-footer .links{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .links{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer .ig{display:inline-flex;align-items:center;gap:15px;margin:9px 0;color:inherit;text-decoration:none}footer .ig svg{flex:none;display:block;width:29px;height:29px}footer .ig:hover{color:var(--ink)}
 footer small{font-size:12px}
 .subhead{font-size:clamp(18px,2.2vw,20px);line-height:1.5;color:var(--ink);max-width:60ch;margin:-12px auto 28px}
 .note{font-size:15px;margin:20px 0 0;max-width:62ch}
@@ -286,28 +288,28 @@ tr.me td{transition:color .4s}
 @keyframes fill{from{transform:scaleX(0)}}
 .typer{pointer-events:none;-webkit-user-select:none;user-select:none;margin:0 0 28px;display:flex;justify-content:center}
 .phone.vv{position:relative;left:auto;top:auto;transform:none;transition:none}
-.screen.vscr{container-type:inline-size;background:url(img/vvod-en-k0-3x.jpg) 0 0/100% 100%}
-html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(.js) .vscr>span{display:none}
+.screen.vscr{container-type:inline-size;background:url(img/vvod-en-k0-3x.webp) 0 0/100% 100%}
+html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.webp)}html:not(.js) .vscr>span{display:none}
 .vscr>span{position:absolute;display:block}
 .vmask{left:12.44%;top:34.33%;width:75.46%;height:4.2%;background:#FCFEFE;opacity:0}
-.vclr{left:79.19%;top:34.78%;width:7.05%;height:3.2%;background:url(img/vvod-krestik-3x.png) 0 0/100% 100%;opacity:0}
+.vclr{left:79.19%;top:34.78%;width:7.05%;height:3.2%;background:url(img/vvod-krestik-3x.webp) 0 0/100% 100%;opacity:0}
 .vscr>.vval{left:13.0%;top:34.74%;height:3.17%;display:flex;align-items:center;white-space:pre;color:#000;
  font:400 var(--vfs,5.14cqw)/1 system-ui,-apple-system,"SF Pro Text",sans-serif;letter-spacing:var(--vls,0)}
 .vt{transform:translateY(var(--vdy,.4cqw))}
 .vcar{flex:none;width:.5cqw;height:100%;background:#12354E;margin-left:.04cqw;border-radius:.2cqw}
 .vchips{left:4.15%;top:52.17%;width:50.58%;height:7.17%;opacity:0}
-.vchip{position:absolute;top:52.17%;height:6.18%;width:12.02%;background-image:url(img/vvod-fishki-3x.png);background-size:420.7% 116.05%;
+.vchip{position:absolute;top:52.17%;height:6.18%;width:12.02%;background-image:url(img/vvod-fishki-3x.webp);background-size:420.7% 116.05%;
  opacity:0;transform:scale(.6);transition:opacity .16s,transform .32s cubic-bezier(.3,1.6,.5,1)}
 .vchip.on{opacity:1;transform:none}
-.vchip.e{background-image:url(img/vvod-fishki-e-3x.png);transition:opacity .12s,transform .18s}
+.vchip.e{background-image:url(img/vvod-fishki-e-3x.webp);transition:opacity .12s,transform .18s}
 .vchip.dn{transform:scale(.9)}
-.vbtn{left:35.16%;top:59.04%;width:61.03%;height:5.95%;background:url(img/vvod-en-check-3x.png) 0 0/100% 100%;opacity:0;transition:opacity .1s}
+.vbtn{left:35.16%;top:59.04%;width:61.03%;height:5.95%;background:url(img/vvod-en-check-3x.webp) 0 0/100% 100%;opacity:0;transition:opacity .1s}
 .vscr.typing .vmask,.vscr.typing .vclr,.vscr.typing .vbtn{opacity:1}
 @media (prefers-reduced-motion:no-preference){.vcar{animation:blink 1.1s steps(1) infinite}.vscr.typing .vcar{animation:none}}
 @media (max-width:760px){.phone.vv{width:248px}}
 .cap.three{margin:0 0 12px}
-:root{--shot:url(img/razbor-en-light.png)}
-@media (prefers-color-scheme:dark){:root{--shot:url(img/razbor-en-dark.png)}}
+:root{--shot:url(img/razbor-en-light.webp)}
+@media (prefers-color-scheme:dark){:root{--shot:url(img/razbor-en-dark.webp)}}
 .cam{width:420px;height:760px;border-radius:0;overflow:hidden;-webkit-mask:linear-gradient(transparent,#000 4%,#000 96%,transparent);mask:linear-gradient(transparent,#000 4%,#000 96%,transparent)}
 .phone{position:absolute;left:0;top:0;width:310px;transform-origin:0 0;transition:transform 1.1s cubic-bezier(.3,.7,.1,1)}
 .screen{position:relative;border-radius:13%/6%;overflow:hidden;aspect-ratio:1206/2622;background:var(--shot) 0 0/100% 100%}
@@ -397,7 +399,7 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
  .key svg{width:68px;height:68px}
  .obj::after{bottom:-8px;height:10px}
 }
-.phone::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url(img/ramka-iphone17-mist-blue.png) 0 0/100% 100% no-repeat;filter:drop-shadow(0 18px 22px rgba(31,110,160,.18))}
+.phone::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url(img/ramka-iphone17-mist-blue.webp) 0 0/100% 100% no-repeat;filter:drop-shadow(0 18px 22px rgba(31,110,160,.18))}
 .phone{aspect-ratio:1350/2760}
 .phone>.screen{position:absolute;left:5.333%;top:2.5%;width:89.333%;height:95%;aspect-ratio:auto}
 @media (max-width:360px){.cam{transform:scale(.68);margin:0 -67px calc(760px*-.32)}.fix .row{font-size:26px}}
