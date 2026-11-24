@@ -25,7 +25,7 @@
 3. Bing Webmaster — **сделано 24.11**: вход владельца через Google (cerstys@); импорт из GSC споткнулся о ручную запись — подтверждено файлом `docs/BingSiteAuth.xml` (itoroapps-site 5c64b8a, НЕ удалять); отправлены `sitemap.xml` и `verbisto/sitemap.xml` (Processing). Разрешение bing.com на чтение Search Console выдано. Новые карты сайта в Bing добавлять вручную (связки с GSC нет); новые страницы — через IndexNow.
 5. Проверить завтра: статус обеих карт в Google и Bing, индексацию /lexito/ и /verbisto/; сцену с телефоном на телефоне владельца (линия 90%, itoroapps-site 3b688d3).
 4. IndexNow — отправлено владельцем 24.11, ответ 202 (принято). Повторять только при новых страницах; тело `/private/tmp/claude-501/lg/indexnow.json`.
-5. App Store Connect URL и `design/vitrina/metadata.json` в репо приложения — по слову владельца.
+5a. App Store Connect URL Verbisto — передано координатору 24.11 (слово владельца); metadata.json обновлён (Conjugador master 20129112, не отправлен — отправляет координатор).
 
 ## Мины
 - **Симуляторы**: «iPhone 17» и «iPhone 17 Rubezh2» — тестовые, НЕ трогать, Safari на них не открывать (сорвал рубеж ЕН-1). Нужен iOS — сначала спросить координатора, свой симулятор «Verbisto-site», df ≥ 12 ГиБ, после — удалить и написать ему. Доступ к устройству владелец даёт только сидя за Mac.
