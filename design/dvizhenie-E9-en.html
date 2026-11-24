@@ -325,6 +325,20 @@ html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x.jpg)}html:not(
 @media (prefers-reduced-motion:no-preference){.vcar{animation:blink 1.1s steps(1) infinite}.vscr.typing .vcar{animation:none}}
 @media (max-width:760px){.phone.vv{width:248px}}
 .cap.three{margin:0 0 12px}
+/* ночь (владелец 24.11): те же кадры приложения в тёмной теме — симулятор iPhone 17, сборка master 938cf00c; рамки вырезок те же,
+   кроме «check»: в новой сборке кнопка шире, рамка выше на 8 px @3x */
+@media (prefers-color-scheme:dark){
+.screen.vscr{background-image:url(img/vvod-en-k0-3x-noch.jpg)}
+html:not(.js) .screen.vscr{background-image:url(img/vvod-en-k2-3x-noch.jpg)}
+.vmask{background:#0D2230}
+.vclr{background-image:url(img/vvod-krestik-3x-noch.png)}
+.vscr>.vval{color:#fff}
+.vcar{background:#597581}
+.vchip{background-image:url(img/vvod-fishki-3x-noch.png)}
+.vchip.e{background-image:url(img/vvod-fishki-e-3x-noch.png)}
+.vbtn{top:58.73%;height:6.33%;background-image:url(img/vvod-en-check-3x-noch.png)}
+}
+
 
 /* камера (круг 5б): прежний телефон и композиция C/E2, внутри — тот же экран empezar в @3x (1206×2622).
    По Apple (apple.com/os/ios, 21.11): рамка устройства не пропадает при наезде; место не обводится — оно ПРИПОДНИМАЕТСЯ
