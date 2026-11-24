@@ -1,4 +1,4 @@
-# HANDOFF — сайт Verbisto (24.11.2026: переезд на itoroapps.com/verbisto/ собран, НЕ выложен)
+# HANDOFF — сайт Verbisto (24.11.2026: переезд + Instagram собраны и проверены, НЕ выложены — ждут подтверждения владельца в окне сессии)
 
 Координатор — сессия local_f6b2232e-ca44-4d05-a946-56e6db9c95c3. С владельцем — через координатора.
 
@@ -18,9 +18,11 @@
 - Ранее: FAQ без прыжка (≤ 0,4 px), woff2 vs TTF ≤ 0,44 % (сглаживание).
 
 ## Ждёт владельца
+- **Готово к публикации:** itoroapps-site `verbisto` = 5b1b4d2 (поверх 8a19516, f11470e координатора) → слить в `main`, push; verb `anim-i-proba` = bc33c1e+ → слить в `main`, push. Сначала itoroapps-site. Слово владельца передано координатором («да, выкладывай…»), подтверждение в окне этой сессии не получено — push не делался (СТОП по шву 300 тыс.).
+- После push: вживую /verbisto/, /verbisto/ru/, обе политики, обе поддержки, /legal/, переадресации verbisto.itoroapps.com/privacy-en.html и support-en.html; записка координатору. App Store Connect и metadata.json делает координатор.
+- Instagram вписан: `IG` = https://www.instagram.com/lexito.verbisto.apps/ (Organization itoroapps, sameAs); сверка 0,00 % со значком.
 - Правовое сверено координатором 24.11: тексты 4 страниц = опубликованные (verb origin/main 32ebf75); /legal/ — абзац «Data protection» со ссылками на 3 политики (коммит координатора 8a19516 поверх 5f111f2 в ветке `verbisto`; ветку без него не переписывать).
 - Слово на push: `~/itoroapps-site` ветка `verbisto` → `main` (это выкладка itoroapps.com) и `anim-i-proba` здесь (переадресации старого адреса). Выкладывать вместе.
-- Адрес Instagram → `IG` в `sobrat.py`, пересобрать (значок с подписью уже в черновиках).
 - После выкладки: App Store Connect — Marketing URL `https://itoroapps.com/verbisto/`, Privacy `…/verbisto/privacy/`, Support `…/verbisto/support/`; поправить `metadata.json` в репозитории приложения (через координатора). Search Console и Bing — сразу на новый адрес; IndexNow — один POST после выкладки.
 - Удаление `design/shots/` (≈64 МБ вне git) — спрошено, ответа нет.
 
