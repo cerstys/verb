@@ -11,12 +11,12 @@
 
 ## Pages
 
-- [Verbisto (English)](https://verbisto.itoroapps.com/en.html): what the app does, how a mistake is broken down, plans and FAQ
-- [Verbisto (Русский)](https://verbisto.itoroapps.com/): the same page in Russian
+- [Verbisto (English)](https://itoroapps.com/verbisto/): what the app does, how a mistake is broken down, plans and FAQ
+- [Verbisto (Русский)](https://itoroapps.com/verbisto/ru/): the same page in Russian
 
 ## Optional
 
-- [Support](https://verbisto.itoroapps.com/support-en.html)
-- [Privacy Policy](https://verbisto.itoroapps.com/privacy-en.html)
-- [Поддержка](https://verbisto.itoroapps.com/support.html)
-- [Политика конфиденциальности](https://verbisto.itoroapps.com/privacy.html)
+- [Support](https://itoroapps.com/verbisto/support/)
+- [Privacy Policy](https://itoroapps.com/verbisto/privacy/)
+- [Поддержка](https://itoroapps.com/verbisto/ru/support/)
+- [Политика конфиденциальности](https://itoroapps.com/verbisto/ru/privacy/)

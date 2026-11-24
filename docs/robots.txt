@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://verbisto.itoroapps.com/sitemap.xml

@@ -1,42 +1,33 @@
-# HANDOFF — сайт Verbisto (23.11.2026: финал E9 + скорость + Instagram в черновиках; НЕ выложен)
+# HANDOFF — сайт Verbisto (24.11.2026: переезд на itoroapps.com/verbisto/ собран, НЕ выложен)
 
-Координатор — сессия local_f6b2232e-ca44-4d05-a946-56e6db9c95c3 (ветка `claude/parallel-work-organization-50228d` в `/Users/AI/Conjugador`). С владельцем — через координатора.
+Координатор — сессия local_f6b2232e-ca44-4d05-a946-56e6db9c95c3. С владельцем — через координатора.
 
-## Опубликовано (без изменений с ЛН-1, 17.11)
-- https://verbisto.itoroapps.com/ — репозиторий `cerstys/verb`, Pages: `main` / `/docs`. Локальный `main` впереди `origin` на 1 коммит (e188d0f), не отправлен.
+## Где что живёт
+- **Новый адрес** (слово владельца 24.11 «ссылку на сайт такого вида», как itoroapps.com/lexito/): репозиторий `deneref/itoroapps-site` (у `cerstys` есть push), Pages `main` / `/docs`, клон `~/itoroapps-site`, ветка **`verbisto`** (не отправлена).
+  - `/verbisto/` — EN (главный: упор владельца на англоязычных), `/verbisto/ru/` — RU; `/verbisto/[ru/]privacy/`, `/verbisto/[ru/]support/`.
+  - Verbisto добавлен в список приложений на главной itoroapps.com; в подвале ссылка на `/legal/` (aviso legal того же владельца).
+- **Источник и сборка** — этот репозиторий (`cerstys/verb`, ветка `anim-i-proba`):
+  - вид: `design/dvizhenie-E9-en.html`, `design/dvizhenie-E9.html`; правовые страницы: `design/stranicy/*.html`; `llms.txt` и ключ IndexNow — там же; og — `design/img/og/`.
+  - сборка: `python3 -I design/instrumenty/sobrat.py` → пишет `../itoroapps-site/docs/verbisto` целиком (руками не править).
+  - картинки → WebP (если легче), шрифт `design/fonts/Manrope.woff2` (подмножество, 32 КБ), favicon 96 px из иконки.
+- **Старый адрес** verbisto.itoroapps.com (`docs/` здесь): 6 страниц-переадресаций (meta refresh + canonical + noindex) на новые адреса, `CNAME`, `robots.txt`. Не удалять: на них ссылаются метаданные App Store (`design/vitrina/metadata.json` в репозитории приложения).
 
-## Ветка `anim-i-proba`
-- Черновики (источник): RU `design/dvizhenie-E9.html`, EN `design/dvizhenie-E9-en.html`. Принято владельцем 22.11: «хорошо всё поправлено… пускай соберёт финальные версии».
-- История: круги 1–8 — `design/otchet-2026-11-21-animacii.md`; «Год» → `design/god-B2.html`; EN-тексты — `design/teksty-en-E9.md`; QA — `design/pokaz-E9/qa-bylo-stalo.html`.
+## Проверено
+- Ссылки всех 6 страниц разрешаются (0 битых); sitemap 6 адресов с hreflang en/ru/x-default.
+- Сверка `zsh design/instrumenty/sverka-final.sh` (сайт с `127.0.0.1:8766` против E9, RM=1, значок IG скрыт в обоих): 48 из 48 мест = 0,00 %.
+- Ранее: FAQ без прыжка (≤ 0,4 px), woff2 vs TTF ≤ 0,44 % (сглаживание).
 
-## Финал (22.11) — `docs/index.html`, `docs/en.html`
-- Сборка: `python3 -I design/instrumenty/sobrat.py` (из корня) — черновик → `docs/`, картинки в `docs/img/` (папка `in/` сплющена), комментарии HTML/CSS/JS сняты, ссылки App Store `id6836263523?pt=129550662&ct=site-<ru|en>-<hero|plans|end>&mt=8`, SEO в `<head>`. Правка вида — в черновике, затем пересборка.
-- SEO: canonical; hreflang ru/en + x-default → EN (для прочих языков EN понятнее); `rel=describedby` → `/llms.txt`; `apple-itunes-app`; OG/Twitter (`img/og-ru|en.jpg`, 1200×630, снято с героя zoom .74); JSON-LD `MobileApplication` (price 0, EducationalApplication, iOS 26) + `FAQPage` (10 вопросов — из `<details>` страницы).
-- Файлы: `docs/sitemap.xml` (6 адресов с hreflang), `docs/robots.txt` (всё открыто), `docs/llms.txt` (EN, формат v2).
-- Нет рейтинга → Google не даст звёздную карточку (нужен aggregateRating/review); выдумывать нельзя — добавить, когда появятся оценки в App Store.
-- Сверка: `zsh design/instrumenty/sverka-final.sh` — E9 vs финал, RU/EN × 1440/375 × день/ночь × 6 мест, RM=1: 48 из 48 = 0,00 % (3 ночных 375 сначала 2–3 % — момент съёмки липкого телефона; при ожидании 2,5 с — 0,00 %). Кадры `design/shots/final-E9/` (не в git).
-- Показ владельцу: `design/pokaz-E9/final.html` (самодостаточный; `python3 -I design/instrumenty/pokaz-final.py`).
-- Проверено: шрифт грузится, 3 картинки + фоны грузятся, JS после снятия комментариев проходит `node --check`, анимация героя в финале = E9.
-
-## 23.11 — сделано
-- FAQ: прыжок 8 px при закрытии убран (7614859).
-- Скорость (слово владельца «картинки и первый экран делаем»): сборщик кладёт WebP (q85), если он легче; шрифт — `docs/fonts/Manrope.woff2` (подмножество: латиница+Latin-1, кириллица, знаки; 165 КБ → 32 КБ; `Manrope.ttf` оставлен для старых черновиков) + preload в `<head>`; privacy/support тоже на woff2. Вес картинок+шрифта без og: RU 1 326 → 348 КБ, EN 1 462 → 350 КБ. Первый экран — текст и блики из canvas, фото на нём нет.
-- Сверка 48/48 = 0,00 % (WebP vs исходники); woff2 vs TTF 20 мест: 375 — 0,00 %, 1440 — ≤ 0,44 % (сглаживание, буквы те же).
-- Instagram: официальный SVG Meta в `design/img/ig/` (+README с правилами), в подвале обоих черновиков значок 29 px + подпись («Мы в Instagram» / «Follow us on Instagram») — выбор владельца. Ссылка — `[INSTAGRAM_URL]`; в `sobrat.py` `IG = None` → значок вырезается из финала, sameAs (Organization) не пишется. Получим адрес — вписать в `IG`, пересобрать.
-- IndexNow: ключ `docs/93833476d0c3446e3902c664fc65b705.txt`; после выкладки — один POST на api.indexnow.org со списком адресов.
-- cdp.mjs: RM и DARK в одном setEmulatedMedia (раньше DARK затирал RM — ночные кадры шли без reduced motion); профиль удаляется с повтором.
-- Владелец: Яндекс — не нужен (упор на англоязычных). Его дела: слово на выкладку, Search Console (DNS TXT), Bing Webmaster (импорт из GSC), Marketing URL в App Store Connect, ссылка на сайт в профиле Instagram, адрес аккаунта нам.
-
-## Недоделано
-- Push и выкладка — ждут слова владельца. После выкладки: сверить в браузере на живом сайте (Rich Results Test, превью ссылки).
-- Safari/iPhone глазами не проверены (WebP/woff2 Safari поддерживает).
-- Нет адреса Instagram.
-- `design/shots/qa-E9/` (≈550 jpeg, не в git) — удалить (у меня удаление не разрешено).
+## Ждёт владельца
+- Слово на push: `~/itoroapps-site` ветка `verbisto` → `main` (это выкладка itoroapps.com) и `anim-i-proba` здесь (переадресации старого адреса). Выкладывать вместе.
+- Адрес Instagram → `IG` в `sobrat.py`, пересобрать (значок с подписью уже в черновиках).
+- После выкладки: App Store Connect — Marketing URL `https://itoroapps.com/verbisto/`, Privacy `…/verbisto/privacy/`, Support `…/verbisto/support/`; поправить `metadata.json` в репозитории приложения (через координатора). Search Console и Bing — сразу на новый адрес; IndexNow — один POST после выкладки.
+- Удаление `design/shots/` (≈64 МБ вне git) — спрошено, ответа нет.
 
 ## Инструменты
-- Съёмка без сервера: `node design/instrumenty/cdp.mjs el|shot|js "file://…" …`; `CSS=…` — вставить стиль, `RM=1`, `DARK=1`. 375 — масштаб 2; jpeg.
+- `node design/instrumenty/cdp.mjs shot|el|js|frames|fps|trace …`; `CSS=…`, `RM=1`, `DARK=1` (оба одним вызовом — исправлено).
+- Локальный сервер: `python3 -m http.server 8766 --bind 127.0.0.1 --directory ~/itoroapps-site/docs`.
 
 ## Мины
 - Push и Pages — только по слову владельца; коммиты — поимённым `git add`.
-- Скептика не звать (слово владельца). Слово «проба» в RU не использовать; в «Годе» нет «Отменить…» (только FAQ). EN-тариф — Lifetime.
-- Диск почти полон: кадры jpeg, видео не копить.
+- Скептика не звать. Слово «проба» в RU не использовать. EN-тариф — Lifetime.
+- `itoroapps-site` общий с léxito (другой проект): трогать только `docs/verbisto/`, строку на главной и README.
