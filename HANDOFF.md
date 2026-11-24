@@ -1,4 +1,4 @@
-# HANDOFF — сайт Verbisto (24.11.2026, вечер; сессия закрыта по СТОП 300k)
+# HANDOFF — сайт Verbisto (24.11.2026, поздний вечер)
 
 Координатор — local_f6b2232e-ca44-4d05-a946-56e6db9c95c3. Владелец пишет и сам (часто через Remote Control с телефона).
 
@@ -16,13 +16,13 @@
 - Проверено: ссылки App Store id6836263523 = Verbisto, id6820599112 = léxito; Instagram один — lexito.verbisto.apps (имя профиля всё ещё «metículo · verbisto» — сказано владельцу, менять ему).
 
 ## Не сделано / ждёт
-1. **Поисковики для обоих приложений** — коммит в ветке `seo-oba` клона itoroapps-site (3dcdd7a, НЕ отправлен): `docs/sitemap.xml` (главная, léxito, legal), robots с двумя картами, ключ IndexNow в корне, README. Ждал новой главной — она уже вышла (d47d137): перебазировать `seo-oba` на main, добавить в главную JSON-LD Organization `#org` + ItemList двух приложений (App Store ссылки выше), показать владельцу, выложить по слову.
-2. Google Search Console: ресурс `https://itoroapps.com/` (URL-prefix), подтверждение HTML-файлом в корне docs; обе карты сайта; запрос индексации главной, /lexito/, /verbisto/. Вход — владельца, во встроенном браузере (расширение Chrome не подключено); аккаунт — тот, где itoroapps.com уже есть, если есть. «Смена адреса» для поддомена не нужна (переезд в папку, хватает переадресаций).
-3. Bing Webmaster — импорт из Google.
-4. IndexNow: тело `/private/tmp/claude-501/lg/indexnow.json` (12 URL обоих приложений, keyLocation в корне — работает только после выкладки п. 1). Отправка — командой владельца:
-   `curl -s -o /dev/null -w '%{http_code}\n' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' --data @/private/tmp/claude-501/lg/indexnow.json`
+0. Живой сайт после 5e9578c проверен (Pages built 5e9578c, кадр /verbisto/ ночью — норм).
+1. **Поисковики** — ветка `seo-oba` клона itoroapps-site перебазирована на main: 538e939 (sitemap, robots, ключ IndexNow, README) + 7b65296 (JSON-LD в главной: Organization `#org` + ItemList двух MobileApplication, цена 0, App Store в sameAs; без рейтингов — их нет, rich result приложений Google без aggregateRating/review не даёт, это ок). Визуально главная не меняется. **НЕ отправлено — ждёт слова владельца**: `cd ~/itoroapps-site && git checkout main && git merge --ff-only seo-oba && git push origin main`.
+2. Google Search Console (после п.1): ресурс URL-prefix `https://itoroapps.com/`, способ «HTML-файл» — Google выдаёт файл `googleXXXX.html` только после входа; положить в `docs/` как есть (не переименовывать, без переадресаций), выложить, нажать «Подтвердить». Потом карты `sitemap.xml` и `verbisto/sitemap.xml`, запрос индексации `/`, `/lexito/`, `/verbisto/`. Вход — владельца во встроенном браузере на Mac.
+3. Bing Webmaster — «Импорт из Google Search Console» (после п.2), вход владельца.
+4. IndexNow (после п.1): тело `/private/tmp/claude-501/lg/indexnow.json`; команда владельца:
+   `curl -s -o /dev/null -w '%{http_code}\n' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' --data @/private/tmp/claude-501/lg/indexnow.json` (200/202 — ок).
 5. App Store Connect URL и `design/vitrina/metadata.json` в репо приложения — по слову владельца.
-6. Проверить живой сайт после 5e9578c (Pages собирал в момент закрытия).
 
 ## Мины
 - **Симуляторы**: «iPhone 17» и «iPhone 17 Rubezh2» — тестовые, НЕ трогать, Safari на них не открывать (сорвал рубеж ЕН-1). Нужен iOS — сначала спросить координатора, свой симулятор «Verbisto-site», df ≥ 12 ГиБ, после — удалить и написать ему. Доступ к устройству владелец даёт только сидя за Mac.
