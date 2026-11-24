@@ -1,37 +1,32 @@
-# HANDOFF — сайт Verbisto (24.11.2026: правки владельца ВЫЛОЖЕНЫ — itoroapps-site main 769b505, verb main 5c710b2)
+# HANDOFF — сайт Verbisto (24.11.2026, вечер; сессия закрыта по СТОП 300k)
 
-Координатор — сессия local_f6b2232e-ca44-4d05-a946-56e6db9c95c3. С владельцем — через координатора.
+Координатор — local_f6b2232e-ca44-4d05-a946-56e6db9c95c3. Владелец пишет и сам (часто через Remote Control с телефона).
 
 ## Где что живёт
-- **Новый адрес** (слово владельца 24.11 «ссылку на сайт такого вида», как itoroapps.com/lexito/): репозиторий `deneref/itoroapps-site` (у `cerstys` есть push), Pages `main` / `/docs`, клон `~/itoroapps-site`, ветка **`verbisto`** (не отправлена).
-  - `/verbisto/` — EN (главный: упор владельца на англоязычных), `/verbisto/ru/` — RU; `/verbisto/[ru/]privacy/`, `/verbisto/[ru/]support/`.
-  - Verbisto добавлен в список приложений на главной itoroapps.com; в подвале ссылка на `/legal/` (aviso legal того же владельца).
-- **Источник и сборка** — этот репозиторий (`cerstys/verb`, ветка `anim-i-proba`):
-  - вид: `design/dvizhenie-E9-en.html`, `design/dvizhenie-E9.html`; правовые страницы: `design/stranicy/*.html`; `llms.txt` и ключ IndexNow — там же; og — `design/img/og/`.
-  - сборка: `python3 -I design/instrumenty/sobrat.py` → пишет `../itoroapps-site/docs/verbisto` целиком (руками не править).
-  - картинки → WebP (если легче), шрифт `design/fonts/Manrope.woff2` (подмножество, 32 КБ), favicon 96 px из иконки.
-- **Старый адрес** verbisto.itoroapps.com (`docs/` здесь): 6 страниц-переадресаций (meta refresh + canonical + noindex) на новые адреса, `CNAME`, `robots.txt`. Не удалять: на них ссылаются метаданные App Store (`design/vitrina/metadata.json` в репозитории приложения).
+- Сайт: `deneref/itoroapps-site` (клон `~/itoroapps-site`), Pages `main`/`docs`. `/verbisto/` EN, `/verbisto/ru/` RU, privacy/support.
+- Источник: этот репозиторий (`cerstys/verb`, ветка `anim-i-proba`, выкладывается `git push origin anim-i-proba:main`).
+  Вид: `design/dvizhenie-E9-en.html`, `design/dvizhenie-E9.html`; сборка `python3 -I design/instrumenty/sobrat.py` → `../itoroapps-site/docs/verbisto` (руками не править).
+- Главную itoroapps.com собирает другая линия («Даня»), коммиты 23ff143, d47d137 — не трогать без слова владельца.
 
-## Проверено
-- Ссылки всех 6 страниц разрешаются (0 битых); sitemap 6 адресов с hreflang en/ru/x-default.
-- Сверка `zsh design/instrumenty/sverka-final.sh` (сайт с `127.0.0.1:8766` против E9, RM=1, значок IG скрыт в обоих): 48 из 48 мест = 0,00 %.
-- Ранее: FAQ без прыжка (≤ 0,4 px), woff2 vs TTF ≤ 0,44 % (сглаживание).
+## Выложено сегодня (itoroapps-site main, последнее 5e9578c; verb main 43978c2)
+- EN без русского: раздел «Written for English speakers», FAQ, meta, RU-переключатель убран из EN-шапок (вкл. privacy/support).
+- Белая полоса внизу в Safari 26+: `.glints` height calc(100lvh + 200px).
+- Мобильная сцена с телефоном: `.cam` .7, шаги 20vh, IO rootMargin '-55% 0px -24% 0px' — фраза меняется посередине свободной зоны (по замечаниям владельца, кадры headless 402×874).
+- Тёмная тема экрана ввода «You type it»: кадры `design/img/vvod-*-noch.*`, исходники 1206×2622 в `design/img/in-dark/`; @media dark в обоих HTML; рамка кнопки в ночи top 58.73% h 6.33%.
+- Проверено: ссылки App Store id6836263523 = Verbisto, id6820599112 = léxito; Instagram один — lexito.verbisto.apps (имя профиля всё ещё «metículo · verbisto» — сказано владельцу, менять ему).
 
-## Дальше (лендинг ведёт эта линия — слово владельца 24.11; координатор на сайте больше не действует)
-- Выложено: itoroapps-site main 5b1b4d2 + edc4bfc координатора (корневой robots.txt, Sitemap → /verbisto/sitemap.xml); verb main 72f5db5. Координатор вживую: 8 страниц 200, IG на обеих, /legal/ → политика Verbisto, 6 старых адресов переадресуют.
-- 24.11, слова владельца, выложено (Pages собрал 769b505): EN без русского (раздел «Written for English speakers», FAQ, meta, RU-переключатель убран из EN-шапок); белая полоса внизу в Safari 26+ — `.glints` height calc(100lvh + 200px); мобильная сцена с телефоном — .cam .7, шаги 32vh, полоса включения -58%/-30%. Проверено в Safari симулятора.
-- 1. «Сейчас она не открывается» — владелец после этого прислал снимки открытой страницы; вопрос, видимо, снят (владелец): у координатора 200 со слэшем/без, с www. Спросить владельца: какой адрес и устройство; искать DNS, кеш, HTTPS на www/http, iOS Safari.
-- 2. IndexNow: тело готово в /private/tmp/claude-501/lg/indexnow.json (urlList только /verbisto/, ключ там же). Координатору запрос НЕ разрешили — сам не слать в обход; спросить владельца.
-- 3. Google Search Console и Bing Webmaster — входом владельца: sitemap, запрос индексации, смена адреса со старого поддомена.
-- 4. App Store Connect (Privacy, Support, Marketing URL) и `design/vitrina/metadata.json` в репозитории приложения — тоже этой линии.
-- Удаление `design/shots/` (≈64 МБ вне git) — спрошено, ответа нет.
-- Instagram: `IG` = https://www.instagram.com/lexito.verbisto.apps/ (Organization itoroapps, sameAs).
-
-## Инструменты
-- `node design/instrumenty/cdp.mjs shot|el|js|frames|fps|trace …`; `CSS=…`, `RM=1`, `DARK=1` (оба одним вызовом — исправлено).
-- Локальный сервер: `python3 -m http.server 8766 --bind 127.0.0.1 --directory ~/itoroapps-site/docs`.
+## Не сделано / ждёт
+1. **Поисковики для обоих приложений** — коммит в ветке `seo-oba` клона itoroapps-site (3dcdd7a, НЕ отправлен): `docs/sitemap.xml` (главная, léxito, legal), robots с двумя картами, ключ IndexNow в корне, README. Ждал новой главной — она уже вышла (d47d137): перебазировать `seo-oba` на main, добавить в главную JSON-LD Organization `#org` + ItemList двух приложений (App Store ссылки выше), показать владельцу, выложить по слову.
+2. Google Search Console: ресурс `https://itoroapps.com/` (URL-prefix), подтверждение HTML-файлом в корне docs; обе карты сайта; запрос индексации главной, /lexito/, /verbisto/. Вход — владельца, во встроенном браузере (расширение Chrome не подключено); аккаунт — тот, где itoroapps.com уже есть, если есть. «Смена адреса» для поддомена не нужна (переезд в папку, хватает переадресаций).
+3. Bing Webmaster — импорт из Google.
+4. IndexNow: тело `/private/tmp/claude-501/lg/indexnow.json` (12 URL обоих приложений, keyLocation в корне — работает только после выкладки п. 1). Отправка — командой владельца:
+   `curl -s -o /dev/null -w '%{http_code}\n' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' --data @/private/tmp/claude-501/lg/indexnow.json`
+5. App Store Connect URL и `design/vitrina/metadata.json` в репо приложения — по слову владельца.
+6. Проверить живой сайт после 5e9578c (Pages собирал в момент закрытия).
 
 ## Мины
-- Push и Pages — только по слову владельца; коммиты — поимённым `git add`.
-- Скептика не звать. Слово «проба» в RU не использовать. EN-тариф — Lifetime.
-- `itoroapps-site` общий с léxito (другой проект): трогать только `docs/verbisto/`, строку на главной и README.
+- **Симуляторы**: «iPhone 17» и «iPhone 17 Rubezh2» — тестовые, НЕ трогать, Safari на них не открывать (сорвал рубеж ЕН-1). Нужен iOS — сначала спросить координатора, свой симулятор «Verbisto-site», df ≥ 12 ГиБ, после — удалить и написать ему. Доступ к устройству владелец даёт только сидя за Mac.
+- Мобильный вид — `node design/instrumenty/cdp.mjs shot <url> 402 874 out.jpg <scroll|.селектор> 1 1500` (DARK=1 — ночь); режим `js` с промисом виснет.
+- Локальный сервер — потоковый: `python3 -c "import http.server as h,functools as f;h.ThreadingHTTPServer(('127.0.0.1',8766),f.partial(h.SimpleHTTPRequestHandler,directory='/Users/AI/itoroapps-site/docs')).serve_forever()"` (простой http.server зависает на оборванном соединении).
+- `curl` наружу запрещён — проверка выкладки через `gh api repos/deneref/itoroapps-site/pages/builds/latest`.
+- Push и Pages — только по слову владельца; itoroapps-site общий с léxito и главной — трогать свои файлы.
