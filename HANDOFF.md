@@ -17,14 +17,14 @@
 - Сверка `zsh design/instrumenty/sverka-final.sh` (сайт с `127.0.0.1:8766` против E9, RM=1, значок IG скрыт в обоих): 48 из 48 мест = 0,00 %.
 - Ранее: FAQ без прыжка (≤ 0,4 px), woff2 vs TTF ≤ 0,44 % (сглаживание).
 
-## Ждёт владельца
-- **Готово к публикации:** itoroapps-site `verbisto` = 5b1b4d2 (поверх 8a19516, f11470e координатора) → слить в `main`, push; verb `anim-i-proba` = bc33c1e+ → слить в `main`, push. Сначала itoroapps-site. Слово владельца передано координатором («да, выкладывай…»), подтверждение в окне этой сессии не получено — push не делался (СТОП по шву 300 тыс.).
-- После push: вживую /verbisto/, /verbisto/ru/, обе политики, обе поддержки, /legal/, переадресации verbisto.itoroapps.com/privacy-en.html и support-en.html; записка координатору. App Store Connect и metadata.json делает координатор.
-- Instagram вписан: `IG` = https://www.instagram.com/lexito.verbisto.apps/ (Organization itoroapps, sameAs); сверка 0,00 % со значком.
-- Правовое сверено координатором 24.11: тексты 4 страниц = опубликованные (verb origin/main 32ebf75); /legal/ — абзац «Data protection» со ссылками на 3 политики (коммит координатора 8a19516 поверх 5f111f2 в ветке `verbisto`; ветку без него не переписывать).
-- Слово на push: `~/itoroapps-site` ветка `verbisto` → `main` (это выкладка itoroapps.com) и `anim-i-proba` здесь (переадресации старого адреса). Выкладывать вместе.
-- После выкладки: App Store Connect — Marketing URL `https://itoroapps.com/verbisto/`, Privacy `…/verbisto/privacy/`, Support `…/verbisto/support/`; поправить `metadata.json` в репозитории приложения (через координатора). Search Console и Bing — сразу на новый адрес; IndexNow — один POST после выкладки.
+## Дальше (лендинг ведёт эта линия — слово владельца 24.11; координатор на сайте больше не действует)
+- Выложено: itoroapps-site main 5b1b4d2 + edc4bfc координатора (корневой robots.txt, Sitemap → /verbisto/sitemap.xml); verb main 72f5db5. Координатор вживую: 8 страниц 200, IG на обеих, /legal/ → политика Verbisto, 6 старых адресов переадресуют.
+- 1. «Сейчас она не открывается» (владелец): у координатора 200 со слэшем/без, с www. Спросить владельца: какой адрес и устройство; искать DNS, кеш, HTTPS на www/http, iOS Safari.
+- 2. IndexNow: тело готово в /private/tmp/claude-501/lg/indexnow.json (urlList только /verbisto/, ключ там же). Координатору запрос НЕ разрешили — сам не слать в обход; спросить владельца.
+- 3. Google Search Console и Bing Webmaster — входом владельца: sitemap, запрос индексации, смена адреса со старого поддомена.
+- 4. App Store Connect (Privacy, Support, Marketing URL) и `design/vitrina/metadata.json` в репозитории приложения — тоже этой линии.
 - Удаление `design/shots/` (≈64 МБ вне git) — спрошено, ответа нет.
+- Instagram: `IG` = https://www.instagram.com/lexito.verbisto.apps/ (Organization itoroapps, sameAs).
 
 ## Инструменты
 - `node design/instrumenty/cdp.mjs shot|el|js|frames|fps|trace …`; `CSS=…`, `RM=1`, `DARK=1` (оба одним вызовом — исправлено).
