@@ -18,6 +18,7 @@
 - Ранее: FAQ без прыжка (≤ 0,4 px), woff2 vs TTF ≤ 0,44 % (сглаживание).
 
 ## Ждёт владельца
+- Правовое сверено координатором 24.11: тексты 4 страниц = опубликованные (verb origin/main 32ebf75); /legal/ — абзац «Data protection» со ссылками на 3 политики (коммит координатора 8a19516 поверх 5f111f2 в ветке `verbisto`; ветку без него не переписывать).
 - Слово на push: `~/itoroapps-site` ветка `verbisto` → `main` (это выкладка itoroapps.com) и `anim-i-proba` здесь (переадресации старого адреса). Выкладывать вместе.
 - Адрес Instagram → `IG` в `sobrat.py`, пересобрать (значок с подписью уже в черновиках).
 - После выкладки: App Store Connect — Marketing URL `https://itoroapps.com/verbisto/`, Privacy `…/verbisto/privacy/`, Support `…/verbisto/support/`; поправить `metadata.json` в репозитории приложения (через координатора). Search Console и Bing — сразу на новый адрес; IndexNow — один POST после выкладки.
