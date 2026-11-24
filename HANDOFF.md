@@ -15,6 +15,9 @@
 - Тёмная тема экрана ввода «You type it»: кадры `design/img/vvod-*-noch.*`, исходники 1206×2622 в `design/img/in-dark/`; @media dark в обоих HTML; рамка кнопки в ночи top 58.73% h 6.33%.
 - Проверено: ссылки App Store id6836263523 = Verbisto, id6820599112 = léxito; Instagram один — lexito.verbisto.apps (имя профиля всё ещё «metículo · verbisto» — сказано владельцу, менять ему).
 
+## Выложено позже 24.11
+- Сцена с телефоном (мобильный): IO заменён на линию 84% высоты экрана по середине текста фразы (itoroapps-site 0a43aed, verb be889bd). На телефоне владельца не проверено — ждать его слова.
+
 ## Не сделано / ждёт
 0. Живой сайт после 5e9578c проверен (Pages built 5e9578c, кадр /verbisto/ ночью — норм).
 1. **Поисковики и ИИ** — ветка `seo-oba` клона itoroapps-site (на main): 538e939 (sitemap, robots, ключ IndexNow), 7b65296 + fe65fc4 — главная и léxito (разрешение владельца 24.11): canonical léxito, превью 1200×630 `docs/img/og.jpg`, `docs/lexito/img/og.jpg`; JSON-LD: Organization `#org` (email hello@itoroapps.com, sameAs только Instagram — TikTok/YT владелец велел не ставить), léxito и Verbisto как MobileApplication, FAQPage léxito ровно по 4 видимым вопросам; `docs/llms.txt` в корне по фактам владельца (цены léxito $39.99/год и $99.99 навсегда, US; iOS 26.5+; EN/ES; >100 000 статей, «построено на данных Wiktionary», не «все определения из Wiktionary»; без скидок и процентов). Логотипа студии нет — в разметке пропущен. Расхождение: FAQ léxito на странице «Best from about B1–B2», владелец — B2+; в llms.txt B2+, страницу не правил — спросить. Плюс плашка App Store в Safari на léxito. **Выложено по слову владельца 24.11: itoroapps-site main d738783.**
