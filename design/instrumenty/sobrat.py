@@ -5,7 +5,7 @@
 # python3 -I design/instrumenty/sobrat.py   (из корня репо; ../itoroapps-site — клон deneref/itoroapps-site); перезаписывает docs/verbisto целиком.
 import html as H, json, os, re, shutil
 from PIL import Image
-IG = None   # адрес аккаунта Instagram (https://www.instagram.com/<имя>/); пока None — значок из подвала вырезается, sameAs нет
+IG = 'https://www.instagram.com/lexito.verbisto.apps/'   # аккаунт студии (слово владельца 24.11); None — значок из подвала вырезается, sameAs нет
 SITE, B = 'https://itoroapps.com/verbisto/', '/verbisto/'
 OUT = '../itoroapps-site/docs/verbisto'
 STORE = 'https://apps.apple.com/app/apple-store/id6836263523?pt=129550662&amp;ct=site-{}-{}&amp;mt=8'
@@ -97,7 +97,9 @@ for lang, p in HOME.items():
          'sameAs': 'https://apps.apple.com/app/id6836263523',
          'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}},
         {'@type': 'FAQPage', 'inLanguage': lang, 'mainEntity': faq(h)}]}
-    if IG: ld['@graph'].append({'@type': 'Organization', 'name': 'Verbisto', 'url': SITE, 'sameAs': [IG]})
+    if IG:   # аккаунт общий для приложений студии → Organization itoroapps, приложение ссылается на неё как на издателя
+        ld['@graph'][0]['publisher'] = {'@id': 'https://itoroapps.com/#org'}
+        ld['@graph'].append({'@type': 'Organization', '@id': 'https://itoroapps.com/#org', 'name': 'itoroapps', 'url': 'https://itoroapps.com/', 'sameAs': [IG]})
     head = f'''<link rel="canonical" href="{url}">
 {alternates('', 'ru/')}{ICONS}<link rel="preload" href="{B}fonts/Manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="describedby" type="text/markdown" href="{B}llms.txt">

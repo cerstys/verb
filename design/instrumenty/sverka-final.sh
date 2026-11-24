@@ -1,15 +1,14 @@
 #!/bin/zsh
 # Сверка сайта (itoroapps.com/verbisto/ с локального сервера 127.0.0.1:8766 — README itoroapps-site) с принятым E9: одни и те же места страницы, RM=1 (без движения — кадры сравнимы).
 # zsh design/instrumenty/sverka-final.sh → design/shots/final-E9/<lang>-<w>-<den|noch>-<p>-{e9,final}.jpg
-# Значок Instagram в финале вырезан, пока IG=None в sobrat.py, — в обоих кадрах он скрыт, иначе высоты страниц расходятся.
 cd "${0:A:h}/../.."; R=$PWD; O=design/shots/final-E9
 for lang in ru en; do
   [[ $lang == ru ]] && { E=design/dvizhenie-E9.html; F=http://127.0.0.1:8766/verbisto/ru/ } || { E=design/dvizhenie-E9-en.html; F=http://127.0.0.1:8766/verbisto/ }
   for w in 1440 375; do [[ $w == 1440 ]] && { h=900; sc=1 } || { h=812; sc=2 }
     for t in den noch; do [[ $t == noch ]] && D=1 || D=
       for p in p0 p0.2 p0.4 p0.6 p0.8 p1; do
-        CSS="footer .ig{display:none!important}" RM=1 DARK=$D node design/instrumenty/cdp.mjs shot "file://$R/$E" $w $h $O/$lang-$w-$t-$p-e9.jpg $p $sc 900 >/dev/null
-        CSS="footer .ig{display:none!important}" RM=1 DARK=$D node design/instrumenty/cdp.mjs shot "$F" $w $h $O/$lang-$w-$t-$p-final.jpg $p $sc 900 >/dev/null
+        RM=1 DARK=$D node design/instrumenty/cdp.mjs shot "file://$R/$E" $w $h $O/$lang-$w-$t-$p-e9.jpg $p $sc 900 >/dev/null
+        RM=1 DARK=$D node design/instrumenty/cdp.mjs shot "$F" $w $h $O/$lang-$w-$t-$p-final.jpg $p $sc 900 >/dev/null
       done; done; done; done
 python3 -I - <<'PY'
 from PIL import Image, ImageChops; import glob
