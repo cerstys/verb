@@ -189,3 +189,17 @@ forms you type.* — и у карточек по строке «для кого�
 
 - Verbisto (разбор ошибки, режим сравнения, цены на странице) — запрошены у координатора 25.11.
 - léxito — отдельным списком: `design/lexito-voprosy-2026-11-25.md`, владелец запросит сам.
+
+## 10. Какие времена добавлять первыми (передано координатору 25.11)
+
+Сейчас: indefinido, imperfecto, perfecto, pluscuamperfecto, futuro.
+1. **Presente de indicativo** — нужен GCSE (Foundation), DELE A2, переехавшим, застрявшим в Duolingo; основа для субхунтива и императива.
+2. **Condicional simple** — GCSE Higher (AQA 8692, сверить по PDF), вежливые просьбы в Испании; дёшево — неправильные основы как у futuro.
+3. **Presente de subjuntivo** — боль русскоязычных в Испании, DELE B1/B2, GCSE Higher ограниченно; после presente.
+4. **Imperativo** с vosotros (hablad / no habléis) — испанская форма, A2 и быт; отрицательный — после субхунтива.
+5. Позже — imperfecto de subjuntivo (B2+).
+Источники: [AQA 8692 Grammar Guide](https://filestore.aqa.org.uk/resources/spanish/AQA-8692-TG-GRAMMAR-GUIDE.PDF),
+[программа A2 Unizar (PCIC)](https://cursosdeespanol.unizar.es/sites/cursosdeespanol/files/archivos/programacion_general_de_a2_.pdf),
+[гид DELE A2](https://examenes.cervantes.es/sites/default/files/DELE_A2_v2020_Guia_de_examen.pdf) — перечень времён в выдаче не извлёкся, сверить.
+
+**Цены Verbisto:** на странице не ставим (слово владельца 25.11 — как у léxito, регионы разные).
