@@ -35,7 +35,7 @@
 | **Школьники GCSE / A-level (Великобритания)** | пробники и устный экзамен, где путаница времён стоит баллов | твёрдо знать неправильные глаголы в прошедших и будущем | 136 871 записей на GCSE Spanish в 2025, испанский обогнал французский (expressandstar.com); школы уже отправляют в Conjuguemos | да, по прошедшим и futuro; **настоящего времени нет** — сказать прямо |
 | **DELE A2 для гражданства Испании** (новый) | гражданство по проживанию требует A2 + CCSE; латиноамериканцы освобождены → в основном не-испаноязычные | сдать и жить без ошибок | ~15 000 записей в апреле и ~7 500 в сентябре 2025 (arc-legal.es, юрфирма) | да: живут в Испании, нужны vosotros и прошедшие |
 | **Переехавшие в Испанию (англоязычные)** | курс учил ustedes, на улице vosotros | понимать и говорить как здесь | Duolingo сам пишет, что vosotros не учит (blog.duolingo.com) | да |
-| **Русско- и украиноязычные в Испании** | «грамматику выучил — говорить не помогло», сабхунтив | объяснения на родном языке | 338 576 украинцев с документами на конец 2025 (lamoncloa.gob.es); многие говорят по-русски [вывод] | да — **объяснений на русском нет ни у кого** |
+| **Русско- и украиноязычные в Испании** | «грамматику выучил — говорить не помогло», сабхунтив | объяснения на родном языке | 338 576 украинцев с документами на конец 2025 (lamoncloa.gob.es); многие говорят по-русски [вывод] | да — **поправка 25.11 (поиск):** объяснения на русском уже есть у Lorito (грамматика по-русски, тренажёр 100 глаголов × 14 времён, DELE A2/CCSE, вариант Испании) и Lingvity; в их описаниях нет разбора ошибки по частям формы (проверено только по описанию Lorito в App Store) |
 | **Застрявшие в Duolingo** | годы серий, а строят только настоящее время; «ставит ошибку и не говорит почему» | понять наконец времена | комментарии Substack 2026 | да |
 | DELE B1/B2 | сабхунтив, ударения стоят баллов | — | блоги подготовки | **нет сабхунтива** — не наш пока |
 | Учащие испанский Латинской Америки | vosotros раздражает | выключить vosotros | Kwiziq, LingQ | **нет** — сказать в «не для вас» |
@@ -90,7 +90,7 @@ translating · SpanishDict alternative for Castilian Spanish · словарь �
   WordReference (сила — форум), Vox/Ultralingua ($14,99, офлайн, 75 тыс.), Word Magic (~$25, флаги стран и регистр),
   Reverso, LingQ и Readlang (онлайн; Readlang пишет, что его ИИ-статьи «могут содержать ошибки»).
 - **Никто не занял**: «Испания по умолчанию» для тренажёра; разбор введённой формы по слоям (основа / окончание /
-  ударение); perfecto «для сегодня» как в Испании; объяснения на русском; словарь с регистром **каждого значения**
+  ударение); perfecto «для сегодня» как в Испании; объяснения на русском (**поправка:** есть у Lorito и Lingvity — не наше «свободное место»); словарь с регистром **каждого значения**
   и пометкой «так говорят в Латинской Америке, не в Испании» в доступном современном iOS-приложении.
 - Рамки (`forbidden-claims.txt`): не писать «только у нас ввод» (у Conjugo есть), «конкуренты не знают», офлайн и
   приватность как **отличие** (для Verbisto), «научно доказано», «запомните навсегда».
@@ -203,3 +203,58 @@ forms you type.* — и у карточек по строке «для кого�
 [гид DELE A2](https://examenes.cervantes.es/sites/default/files/DELE_A2_v2020_Guia_de_examen.pdf) — перечень времён в выдаче не извлёкся, сверить.
 
 **Цены Verbisto:** на странице не ставим (слово владельца 25.11 — как у léxito, регионы разные).
+
+## 11. Реальные запросы (поиск 25.11, Chrome владельца; Reddit опущен)
+
+Как смотрели: Google Trends (5 лет, мир / US / GB / ES, чтение таблиц на странице — скрипт к API Trends
+заблокирован правилами доступа); подсказки Google (EN — gl=gb/us, RU — gl=es); выдача веб-App Store
+(подсказок у веб-версии нет, у служебного адреса без витрины — пусто); вместо Perplexity — **Google AI Mode**
+(Perplexity без входа больше не отвечает: «Sign up and repeat your request»; аккаунт не заводили).
+Цифры Trends — относительные (0–100 внутри одного сравнения), сравнивать только внутри строки.
+
+### Trends (среднее за 5 лет; в скобках — первый год → последний год)
+| Сравнение | Что видно |
+|---|---|
+| US: spanish conjugation 49 (52→32), spanish verbs 36 (37→28), vosotros 16 (13→16), preterite vs imperfect 5, spanish verb app 0 | общий спрос на «спряжение» падает (ответы ИИ забирают), vosotros держится |
+| GB: spanish conjugation 56→52, spanish verbs 56→51, vosotros ~9 | в UK спрос стабилен; растут конкретные глаголы (almorzar, probar, entender conjugation) — это школьные списки |
+| GB растущие у «spanish verbs»: stem-changing verbs, **ella verbs +350–400 %**, conjuguemos, verbs like gustar | Ella Verbs набирает узнаваемость именно в UK |
+| Мир, экзамены: gcse spanish 28 (23→35), dele a2 13 (11→18), **ccse 28 (22→37)**, dele b1 8 | гражданство Испании (CCSE + DELE A2) растёт заметнее всего — сегмент подтверждён |
+| Мир, времена: past tense 45, subjunctive 44, present 33, future 22, preterite vs imperfect 13 | подтверждает очерёдность: presente и субхунтив — большой спрос |
+| Мир, бренды: spanishdict 40 (**60→32, вдвое**), conjuguemos 16 (11→16), ella verbs ~1 (растёт), conjugato ~0 | словари в поиске падают — люди спрашивают ИИ; значит llms.txt и FAQ важнее, чем раньше [вывод] |
+| léxito, мир: spanish dictionary 30 (31→40), **spanish slang 26 (20→32)**, spain slang ~1, castilian spanish ~1 | «сленг» растёт; люди пишут «spanish slang», а не «spain slang» |
+| «vosotros» в мире | лидируют Гондурас, Никарагуа, Гватемала (Библия: «vosotros sois la luz del mundo») — не сигнал учащихся |
+
+### Подсказки Google — как люди формулируют
+- **spanish conjugation app** → free · spanish verbs app · conjugation **practice** app · best spanish conjugation practice app · apps to practice spanish conjugation.
+- **vosotros** → meaning · vs ustedes · conjugation · vs nosotros. **duolingo vosotros** → does duolingo teach vosotros · duolingo no vosotros.
+- **gcse spanish verbs** → list · **revision** · verb endings · verb practice · verb tables · gcse spanish tenses (revision / practice).
+- **preterite vs imperfect** → practice · rules · when to use · **trigger words** · vs present perfect. В EN говорят **preterite**, не indefinido.
+- **spanish from spain** → vs mexico · slang · accent · vs latin america.
+- **dele a2** (ES) → examen 2026 · past papers · practice test free · cita previa.
+- RU: **спряжение испанских глаголов** → таблица · онлайн · упражнения · в прошедшем · preterito indefinido; **испанские глаголы** → тренажер · в прошедшем; **indefinido и** → imperfecto разница · perfecto разница.
+
+### App Store (веб, выдача)
+- US «spanish conjugation»: ConjuGato 4,3 тыс., Ella Verbs 5,5 тыс., Spanish Verb Conjugator, Conjuu, SpanishDict… **Verbisto нет в первых 12**.
+- GB «vosotros»: **Verbisto № 8** («Conjugation as spoken in Spain»), léxito № 3. US «vosotros»: léxito № 3, Verbisto нет.
+- **По имени «verbisto» приложение не находится ни в US, ни в GB** (выдача — конный спорт). → координатору: проверить витрины/доступность и индексацию названия в ASC.
+- ES «испанские глаголы» (RU): Duolingo, EWA, Полиглот, ConjuGato, **Lorito: «Грамматика по-русски, A1–C2»** — бесплатно, 159 правил «с ошибками русскоязычных», тренажёр 100 глаголов × 14 времён с проверкой ударений, пробные DELE A2 и 300 вопросов CCSE, вариант Испания / Латинская Америка / vos.
+
+### Что отвечает ИИ (Google AI Mode, GB/ES)
+| Вопрос | Кого советует | Что важно для нас |
+|---|---|---|
+| best iPhone app … vosotros (Spain Spanish) | ConjuGato, Ella Verbs, Verb Rush, **Gramanator** (европейский испанский по умолчанию, вышел на iPhone 12.10.2026) | хвалят «переключатель vosotros»; «Испания по умолчанию» уже заявляет Gramanator |
+| conjugation app that explains why my answer is wrong | **Ella Verbs**: «right tense, wrong verb», «missing accent mark» + правило; ConjuGato подсвечивает основу/окончание | «объясняет ошибку» уже занято Ella Verbs — наше отличие надо называть точнее (см. план) |
+| Duolingo doesn't teach vosotros, moving to Spain | ConjuGato + SpanishDict, Ella Verbs, Busuu | — |
+| best app to revise Spanish verbs for GCSE | ConjuGato, Ella Verbs, Seneca, VerbMaster | GCSE-слова: revise, tenses, Foundation/Higher, AQA/Edexcel |
+| RU: приложение для спряжения с vosotros и объяснением ошибок на русском | ConjuGato, Lingvity, VerbForms, Vamos (веб, ИИ-репетитор), Edespa; «универсального приложения … практически нет» | место есть, но не «единственные» |
+| **Verbisto Spanish verbs app review** | «нет такого приложения», путает с **Verbito, Verbizo, Verbooster** | **главная находка**: ИИ не знает Verbisto и путает имя |
+
+Индекс Google (site:itoroapps.com): /verbisto/, /lexito/, главная, /meticulo/support/. **/verbisto/ru/ в индексе нет.**
+
+### Выводы для плана [вывод]
+1. Имя путают — первой строкой страницы и в llms.txt нужна связка «Verbisto — iPhone app by itoroapps» и явная ссылка на App Store; в llms.txt — «not to be confused with Verbito / Verbizo / Verbooster» (факт, не сравнение).
+2. На EN-странице **0 раз «conjugation» и 0 раз «preterite»** — двух главных слов поиска. Indefinido оставить, но при первом упоминании — «indefinido (the preterite)».
+3. «Explains why you're wrong» — общее место (Ella Verbs). Наше отличие говорить конкретно: отметка прямо на буквах вашего ответа; ответ не показывает, пока есть попытки; ошибка только в ударении — не «неверно»; Испания без переключателя (vosotros всегда, perfecto для «сегодня»). Без «only» (forbidden-claims).
+4. GCSE: слова «revision», «tenses», «Foundation / Higher». CCSE + DELE A2 растут — FAQ про гражданство оправдан.
+5. RU: «объяснения на русском» не отличие (Lorito, Lingvity). Отличие — разбор формы и Испания по умолчанию; на RU-странице не писать «нигде больше».
+6. Режим сравнения indefinido ↔ imperfecto: спрос подтверждён (RU-подсказка № 1 «indefinido и imperfecto разница», EN «preterite vs imperfect practice / trigger words») — решение владельца верное; на сайт — после выхода.
