@@ -106,7 +106,7 @@ translating · SpanishDict alternative for Castilian Spanish · словарь �
 обе; не уверен — честно отказывается вместо неверной зоны; правило подбирается по зоне ошибки, плюс основы похожих
 глаголов в том же лице. Формула для лендинга: *Shows exactly where the mistake is — the stem, the ending, the accent
 or the helper verb — and explains the rule for that one spot. It doesn't type the answer for you.*
-Режима сравнения indefinido/imperfecto в коде пока нет — на сайт не писать. Объяснения на русском — везде, тексты
+Сравнение в плане — v1.1 CONTRAST, пара **indefinido ↔ perfecto** (выбор по маркеру hoy/ayer, узус Испании); в коде нет, срока нет — на сайт не писать. Боль «indefinido и imperfecto сливаются» планом пока не закрыта — находка для плана владельца (координатор 25.11). Объяснения на русском — везде, тексты
 самостоятельные, не перевод. Цены США: месяц $6.99, год $29.99, навсегда $79.99 (семейный доступ) — ставить ли
 на страницу, решает владелец (вариант координатора — да).
 
@@ -125,7 +125,7 @@ or the helper verb — and explains the rule for that one spot. It doesn't type 
    испанский Латинской Америки, нужно настоящее время или сабхунтив (пока нет), Android.
 4. **Новые вопросы в FAQ** (их словами, они же попадут в разметку):
    - *I keep mixing up the indefinido and the imperfecto. Will this help?* — опора на уже готовый текст про
-     английское «played»; режим сравнения сейчас в разработке — писать о нём только после выхода.
+     английское «played»; режима для этой пары в плане нет (v1.1 сравнивает indefinido ↔ perfecto) — не обещать.
    - *Is it good for GCSE or A-level Spanish?* — да для прошедших и futuro; настоящего нет.
    - *I need DELE A2 for Spanish citizenship. Does it cover what I need?* — прошедшие и futuro, не подготовка к экзамену целиком.
    - *Which tenses are in it?* — прошедшие и будущее сейчас, набор расширяется (без перечня — слово владельца).
