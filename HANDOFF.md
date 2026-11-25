@@ -44,7 +44,7 @@ léxito (после ответов владельца на `design/lexito-vopros
 
 ## Не сделано / следующая сессия
 1. ~~Исследование запросов~~ — **сделано 25.11** (разбор §11): Trends, подсказки Google, выдача App Store, Google AI Mode вместо Perplexity (Perplexity требует входа). План правок Verbisto — `design/plan-pravok-verbisto-2026-11-25.md`, передан координатору.
-2. Показать владельцу план правок Verbisto → по «да» делать, кадры EN/RU, выкладка по слову.
+2. ~~План правок Verbisto~~ — **EN выложен 25.11** (itoroapps-site e37c0c8, verb ca5aaf2): title, строка с пятью местами ошибки, «для кого» вторым экраном, FAQ 15, llms.txt (≠ Verbito), без «works offline». Сверка — `design/sverka-verbisto-en-2026-11-25.md`. IndexNow 202, GSC — запрос индексации /verbisto/. **Следующее: RU тем же порядком** (план → сборка → кадры → слово владельца → выкладка → IndexNow + GSC для /verbisto/ru/, её ещё нет в индексе).
 3. léxito — ждать ответов владельца на 15 вопросов.
 4. Перепроверить статусы карт в GSC/Bing и индексацию /lexito/, /verbisto/; сцену с телефоном — подтверждение владельца.
 5. App Store Connect URL Verbisto — у координатора (metadata.json Conjugador 20129112, отправляет он).
