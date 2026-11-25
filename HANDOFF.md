@@ -1,4 +1,4 @@
-# HANDOFF — сайт Verbisto (24.11.2026, поздний вечер)
+# HANDOFF — сайт Verbisto и léxito (25.11.2026, СТОП по слову владельца)
 
 Координатор — local_f6b2232e-ca44-4d05-a946-56e6db9c95c3. Владелец пишет и сам (часто через Remote Control с телефона).
 
@@ -8,24 +8,46 @@
   Вид: `design/dvizhenie-E9-en.html`, `design/dvizhenie-E9.html`; сборка `python3 -I design/instrumenty/sobrat.py` → `../itoroapps-site/docs/verbisto` (руками не править).
 - Главную itoroapps.com собирает другая линия («Даня»), коммиты 23ff143, d47d137 — не трогать без слова владельца.
 
-## Выложено сегодня (itoroapps-site main, последнее 5e9578c; verb main 43978c2)
-- EN без русского: раздел «Written for English speakers», FAQ, meta, RU-переключатель убран из EN-шапок (вкл. privacy/support).
-- Белая полоса внизу в Safari 26+: `.glints` height calc(100lvh + 200px).
-- Мобильная сцена с телефоном: `.cam` .7, шаги 20vh, IO rootMargin '-55% 0px -24% 0px' — фраза меняется посередине свободной зоны (по замечаниям владельца, кадры headless 402×874).
-- Тёмная тема экрана ввода «You type it»: кадры `design/img/vvod-*-noch.*`, исходники 1206×2622 в `design/img/in-dark/`; @media dark в обоих HTML; рамка кнопки в ночи top 58.73% h 6.33%.
-- Проверено: ссылки App Store id6836263523 = Verbisto, id6820599112 = léxito; Instagram один — lexito.verbisto.apps (имя профиля всё ещё «metículo · verbisto» — сказано владельцу, менять ему).
+## Состояние сайта (itoroapps-site main 44737ca, verb main — последний коммит этой сессии)
+- 24.11: EN без русского, полоса Safari, тёмный экран ввода, сцена с телефоном (см. git log).
+- Поисковики и ИИ выложены (d738783): sitemap общий + verbisto, robots, ключ IndexNow, JSON-LD главной (Organization `#org`, ItemList léxito/Verbisto) и léxito (MobileApplication, FAQPage по 4 видимым вопросам), canonical и превью 1200×630 главной и léxito, `docs/llms.txt` в корне, плашка App Store в Safari на léxito.
+- Сцена с телефоном (мобильный): фраза загорается, когда середина текста проходит **90%** высоты экрана, проявление .25s (3b688d3 / verb). **Владелец на телефоне не подтвердил** — спросить.
+- `verbisto/llms.txt`: цены US $6.99/мес, $29.99/год, $79.99 навсегда с пометкой «по странам иначе» (44737ca). На страницах цен НЕТ — слово владельца (регионы разные), так же у léxito.
 
-## Выложено позже 24.11
-- Сцена с телефоном (мобильный): IO заменён на линию 84% высоты экрана по середине текста фразы (itoroapps-site 0a43aed, verb be889bd). На телефоне владельца не проверено — ждать его слова.
+## Поисковики — сделано 25.11
+- Google Search Console (Chrome владельца, аккаунт cerstys@, рядом oneofyours.ru): ресурс `https://itoroapps.com/` подтверждён файлом `docs/googleb2ba5f3e59b15710.html` (998ff0f, НЕ удалять). `sitemap.xml` — успешно, 6 стр.; `verbisto/sitemap.xml` при отправке «Не получено», но /verbisto/ уже найден по ней — **перепроверить**. Запрошена индексация /, /lexito/, /verbisto/.
+- Bing Webmaster: подтверждён файлом `docs/BingSiteAuth.xml` (5c64b8a, НЕ удалять); обе карты отправлены (Processing). Разрешение bing.com на чтение GSC выдано; связки-импорта нет (мешала ручная запись) — не нужна.
+- IndexNow: владелец отправил, 202. Повторять при новых страницах.
+- В GSC появились ресурсы Instagram/TikTok/YouTube — предложено владельцу, не делано.
 
-## Не сделано / ждёт
-0. Живой сайт после 5e9578c проверен (Pages built 5e9578c, кадр /verbisto/ ночью — норм).
-1. **Поисковики и ИИ** — ветка `seo-oba` клона itoroapps-site (на main): 538e939 (sitemap, robots, ключ IndexNow), 7b65296 + fe65fc4 — главная и léxito (разрешение владельца 24.11): canonical léxito, превью 1200×630 `docs/img/og.jpg`, `docs/lexito/img/og.jpg`; JSON-LD: Organization `#org` (email hello@itoroapps.com, sameAs только Instagram — TikTok/YT владелец велел не ставить), léxito и Verbisto как MobileApplication, FAQPage léxito ровно по 4 видимым вопросам; `docs/llms.txt` в корне по фактам владельца (цены léxito $39.99/год и $99.99 навсегда, US; iOS 26.5+; EN/ES; >100 000 статей, «построено на данных Wiktionary», не «все определения из Wiktionary»; без скидок и процентов). Логотипа студии нет — в разметке пропущен. Расхождение: FAQ léxito на странице «Best from about B1–B2», владелец — B2+; в llms.txt B2+, страницу не правил — спросить. Плюс плашка App Store в Safari на léxito. **Выложено по слову владельца 24.11: itoroapps-site main d738783.**
-2. Google Search Console — **сделано 24.11** в Chrome владельца (аккаунт, где уже oneofyours.ru): ресурс `https://itoroapps.com/` подтверждён HTML-файлом `docs/googleb2ba5f3e59b15710.html` (itoroapps-site 998ff0f, НЕ удалять); `sitemap.xml` — успешно, 6 стр.; `verbisto/sitemap.xml` при отправке «Не получено», но по ней Google уже нашёл /verbisto/ — перепроверить статус; запрошена индексация /, /lexito/ (был неизвестен), /verbisto/ (обнаружен, не проиндексирован). Заметка: в Search Console появились ресурсы Instagram/TikTok/YouTube — можно добавить профили, если владелец захочет.
-3. Bing Webmaster — **сделано 24.11**: вход владельца через Google (cerstys@); импорт из GSC споткнулся о ручную запись — подтверждено файлом `docs/BingSiteAuth.xml` (itoroapps-site 5c64b8a, НЕ удалять); отправлены `sitemap.xml` и `verbisto/sitemap.xml` (Processing). Разрешение bing.com на чтение Search Console выдано. Новые карты сайта в Bing добавлять вручную (связки с GSC нет); новые страницы — через IndexNow.
-5. Проверить завтра: статус обеих карт в Google и Bing, индексацию /lexito/ и /verbisto/; сцену с телефоном на телефоне владельца (линия 90%, itoroapps-site 3b688d3).
-4. IndexNow — отправлено владельцем 24.11, ответ 202 (принято). Повторять только при новых страницах; тело `/private/tmp/claude-501/lg/indexnow.json`.
-5a. App Store Connect URL Verbisto — передано координатору 24.11 (слово владельца); metadata.json обновлён (Conjugador master 20129112, не отправлен — отправляет координатор).
+## Разбор смыслов (главная работа 25.11) — НЕ потерять
+**Документ:** `design/razbor-smyslov-2026-11-25.md` (копия в заметках группы `ЛН-2-ЦА-смыслы-для-плана.md`). Там: сегменты ЦА с размерами и источниками, боли их словами, запросы к ИИ (EN/RU), конкуренты, предложения по страницам, карта «боль → ответ продукта» (от координатора, по коду), очерёдность времён.
+**Ключевые находки:**
+- ЦА шире: Verbisto — UK GCSE/A-level (136 871 в 2025), DELE A2 для гражданства Испании (~22,5 тыс. записей за 2 сессии 2025), переехавшие в Испанию, русско-/украиноязычные в Испании (объяснений на русском нет ни у кого), застрявшие в Duolingo. léxito — читатели B2+, живущие в Испании, «это слово грубое?» (сильный крючок), зрители сериалов из Испании, B2→C1.
+- Свободная позиция: «Испания по умолчанию» (у конкурентов vosotros — переключатель); ни один список словарей не говорит об Испании vs Латинской Америке. Ближайший конкурент Verbisto — Ella Verbs ($59.99/год).
+- Страницы открываются механикой, а не болью; H1 Verbisto «Where's the mistake?» без поисковых слов; «для кого» внизу; анимированные слова (`comereis`, `comeréis`) машина читает по буквам (aria-label на `<p>` не работает) — чинить скрытым целым словом + буквы `aria-hidden`.
+**Ответы координатора (по коду master 4a2f4540):** разбор — 5 зон (ударение, основа, окончание, вспомогательный, причастие), отметка на буквах ответа, ответ не показывает до конца попыток, называет причину, две ошибки — обе, не уверен — честный отказ. Ошибка только в знаке — отдельный вердикт, не «неверно». Звука нет. Напоминание одно в день по желанию, тихое. Русский — везде, самостоятельные тексты. Формула: *Shows exactly where the mistake is — the stem, the ending, the accent or the helper verb — and explains the rule for that one spot. It doesn't type the answer for you.*
+**Решения владельца 25.11:** число глаголов и список времён на сайт НЕ писать (растут) — «прошедшие и будущее сейчас, набор растёт»; режим сравнения — первой парой indefinido↔imperfecto, на сайт только после выхода; цены на страницах не ставить.
+**Передано координатору для плана:** ЦА и боли; очерёдность времён presente → condicional → presente de subjuntivo → imperativo с vosotros (imperativo в roadmap нет — новая позиция); координатор передаёт владельцу.
+
+## План правок страниц (предложен, НЕ начат — ждёт «да» владельца)
+Verbisto (EN, затем RU):
+1. title: «Verbisto — Spanish verb conjugation practice for Spain (vosotros included) · iPhone».
+2. Над «Where's the mistake?» — строка смысла: A «Spanish verbs as Spain conjugates them — and exactly where your form went wrong.» или B «Know the rules but still get the forms wrong? See exactly which part is off.»; формулу разбора — из ответа координатора.
+3. «Is it for you?» поднять во второй экран и назвать людей (GCSE/A-level, DELE A2 для гражданства, переезд в Испанию, «Duolingo не учит vosotros»); «не для вас» — начинающие, LatAm, Android (без перечня времён).
+4. FAQ новые (их словами, в разметку FAQPage): путаю indefinido/imperfecto (без обещания режима); GCSE/A-level; DELE A2; какие времена (без списка); Spain или LatAm; одно ударение — не «неверно»; без звука и навязчивых уведомлений; объяснения на русском.
+5. Текст для машин в анимированных словах.
+6. Не трогать: «No points. No telling-off.», «Written for English speakers», «Practise first. Pay later.».
+Рамки: `Conjugador/landing/forbidden-claims.txt` (нет «only app», «works offline», «scientifically», «remember forever»).
+léxito (после ответов владельца на `design/lexito-voprosy-2026-11-25.md`, 15 вопросов — владелец запросит сам): подзаголовок-крючок «Is it slang, rude, old-fashioned — or only said in Latin America?», title со словами «Spain Spanish–English dictionary, slang, register», блок «Who it's for / not for», FAQ (rude?, LatAm?, offline, iPhone/iOS 26.5, язык определений, Kindle — если работает), уровень «B2» вместо «B1–B2» (ждёт слова).
+Главная: строка смысла под заголовком «Two iPhone apps for Spanish as it's spoken in Spain: one for the words you read, one for the verb forms you type.» + «для кого» у карточек.
+
+## Не сделано / следующая сессия
+1. **Исследование запросов (слово владельца: делать после чистки сессии, Reddit опустить):** Google Trends (сравнить запросы, страны UK/US/ES), подсказки Google и App Store, ответы Perplexity без входа — в Chrome владельца (расширение подключено). Дописать в разбор раздел «реальные запросы» и при необходимости поправить план.
+2. Показать владельцу план правок Verbisto → по «да» делать, кадры EN/RU, выкладка по слову.
+3. léxito — ждать ответов владельца на 15 вопросов.
+4. Перепроверить статусы карт в GSC/Bing и индексацию /lexito/, /verbisto/; сцену с телефоном — подтверждение владельца.
+5. App Store Connect URL Verbisto — у координатора (metadata.json Conjugador 20129112, отправляет он).
 
 ## Мины
 - **Симуляторы**: «iPhone 17» и «iPhone 17 Rubezh2» — тестовые, НЕ трогать, Safari на них не открывать (сорвал рубеж ЕН-1). Нужен iOS — сначала спросить координатора, свой симулятор «Verbisto-site», df ≥ 12 ГиБ, после — удалить и написать ему. Доступ к устройству владелец даёт только сидя за Mac.
